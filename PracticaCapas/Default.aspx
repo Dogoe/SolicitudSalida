@@ -12,7 +12,7 @@
 <body>
 <header>
     <div class="container">
-        <h1 style="text-align:center">Sistema Integral de Solicitud de Salidaaaa</h1>
+        <h1 style="text-align:center">Sistema Integral de Solicitud de Salidaa</h1>
     </div>
 </header>
     <form id="form1" runat="server">
