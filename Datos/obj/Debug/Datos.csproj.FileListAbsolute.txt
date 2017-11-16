@@ -1,0 +1,4 @@
+c:\users\josue\documents\visual studio 2017\Projects\PracticaCapas\Datos\bin\Debug\Datos.dll
+c:\users\josue\documents\visual studio 2017\Projects\PracticaCapas\Datos\bin\Debug\Datos.pdb
+c:\users\josue\documents\visual studio 2017\Projects\PracticaCapas\Datos\obj\Debug\Datos.dll
+c:\users\josue\documents\visual studio 2017\Projects\PracticaCapas\Datos\obj\Debug\Datos.pdb

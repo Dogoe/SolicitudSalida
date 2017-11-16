@@ -1,0 +1,7 @@
+c:\users\josue\documents\visual studio 2017\Projects\PracticaCapas\Negocios\bin\Debug\Negocios.dll
+c:\users\josue\documents\visual studio 2017\Projects\PracticaCapas\Negocios\bin\Debug\Negocios.pdb
+c:\users\josue\documents\visual studio 2017\Projects\PracticaCapas\Negocios\bin\Debug\Datos.dll
+c:\users\josue\documents\visual studio 2017\Projects\PracticaCapas\Negocios\bin\Debug\Datos.pdb
+c:\users\josue\documents\visual studio 2017\Projects\PracticaCapas\Negocios\obj\Debug\Negocios.csprojResolveAssemblyReference.cache
+c:\users\josue\documents\visual studio 2017\Projects\PracticaCapas\Negocios\obj\Debug\Negocios.dll
+c:\users\josue\documents\visual studio 2017\Projects\PracticaCapas\Negocios\obj\Debug\Negocios.pdb

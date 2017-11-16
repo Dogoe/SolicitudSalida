@@ -1,0 +1,4 @@
+c:\users\josue\documents\visual studio 2017\Projects\PracticaCapas\Identidades\bin\Debug\Identidades.dll
+c:\users\josue\documents\visual studio 2017\Projects\PracticaCapas\Identidades\bin\Debug\Identidades.pdb
+c:\users\josue\documents\visual studio 2017\Projects\PracticaCapas\Identidades\obj\Debug\Identidades.dll
+c:\users\josue\documents\visual studio 2017\Projects\PracticaCapas\Identidades\obj\Debug\Identidades.pdb
