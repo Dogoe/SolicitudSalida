@@ -78,6 +78,9 @@
     <Content Include="Resources\bootstrap-3.3.7-dist\css\bootstrap.min.css" />
     <Content Include="Resources\bootstrap-3.3.7-dist\js\bootstrap.min.js" />
     <Content Include="Resources\estilos.css" />
+    <Content Include="Resources\img\favicon.PNG" />
+    <Content Include="Resources\img\logofiad.png" />
+    <Content Include="Resources\img\logouabc.png" />
     <Content Include="Resources\Jquery-3.2.1\js\jquery-3.2.1.min.js" />
     <Content Include="Web.config">
       <SubType>Designer</SubType>

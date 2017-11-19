@@ -18,5 +18,9 @@ namespace PracticaCapas
         {
             Response.Redirect("http://google.com");
         }
+        protected void BtnTryLogin(object sender, EventArgs e)
+        {
+            
+        }
     }
 }
