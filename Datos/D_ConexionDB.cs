@@ -1,9 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
 using System.Data;
 using System.Data.SqlClient;
 using System.Configuration;
@@ -13,10 +8,13 @@ namespace Datos
     public class D_ConexionDB
     {
         public SqlConnection Conexion;
+        public string NombreConexionBaseDatos;
 
-        public D_ConexionDB()
+        public D_ConexionDB(string nombreConexionBaseDatos)
         {
-            Conexion = new SqlConnection(ConfigurationManager.ConnectionStrings["connectionString"].ConnectionString);
+            NombreConexionBaseDatos = nombreConexionBaseDatos;
+            String connectionString = ConfigurationManager.ConnectionStrings[NombreConexionBaseDatos].ConnectionString;
+            Conexion = new SqlConnection(connectionString);      
         }
         //------------------------------
         public void AbrirConexion()

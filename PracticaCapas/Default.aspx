@@ -5,7 +5,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
     <title>Solicitud de Salida</title>
-    <meta name= "viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, minimun-scale=1.0, minimun-scale=1.0">
+    <meta name= "viewport" content="width=device-width, user-scalable=no, initial-scale=1.0">
     <link rel="stylesheet" href="Resources/bootstrap-3.3.7-dist/css/bootstrap.min.css">
     <link rel="stylesheet" href="Resources/estilos.css">
 </head>
@@ -29,11 +29,11 @@
     </div>
 </header>
 <div class="container">
-    <div myheader></div>
+    
     <h2 class="text-center">Bienvenido al Sistema de Solicitudes de Salida</h2>
     <div>
         <!--Formulario para iniciar sesión-->
-        <div class="container" id="login">
+        <div class="container">
             <div class="row">
                 <div class="col-md-4 col-md-offset-4">
                     <div class="panel panel-default">
@@ -41,21 +41,22 @@
                             <h3 class="panel-title">Iniciar sesi&oacute;n:</h3>
                         </div>
                         <div class="panel-body">
-                            <form  name="myForm">
+                            
+                            <form  id="formLogin" runat="server">
                                 <div ></div>
-                              
-                                    <div class="form-group">
-                                        <label>Correo:</label>
-                                        <input  class="form-control" placeholder="Correo" name="correo" type="email"  ng-model="usuarioDTO.Correo" ng-pattern="regex.correo" required>
-                                     
-                                    </div>
-                                    <div class="form-group">
-                                        <label>Contraseña:</label>
-                                        <input class="form-control" placeholder="Contraseña" name="pswd" type="password" ng-model="usuarioDTO.Contrasenia" required>
-                                   
-                                    </div>
-                                    <input type="submit" ng-keypress="" value="Ingresar" class="btn btn-success btn-block" ng-disabled="!myForm.$valid" ng-click="IniciarSesion()">
-                             
+                                <div class="form-group">
+                                    <label>Correo:</label>
+                                    <asp:TextBox ID= "EmailLogin" runat="server" class="form-control" placeholder="Email"></asp:TextBox>    
+                                </div>
+                                <div class="form-group">
+                                    <label>Contraseña:</label>
+                                    <asp:TextBox ID= "PassUser" runat="server" class="form-control" placeholder="Password"></asp:TextBox>
+                                </div>
+                                <asp:Button ID="btnTryLogin" runat="server" class="btn btn-success btn-block" type="submit" text="Ingresar" OnClick="btnTryLogin_click"/>
+                                
+                                <asp:Label ID="msj" class="alert alert-danger" runat="server"></asp:Label>
+                                
+                               
                             </form>
                         </div>
                     </div>
@@ -64,31 +65,10 @@
           
         </div>
     </div>
-    <div myfooter></div>
-    <form id="form1" runat="server">
-   
-        <div>
-            <asp:Button class="btn btn-primary" ID="btnCargarPage" runat="server" Text="Boton Prueba" OnClick="btnCargarPage_Click" />
-            <asp:GridView class="table table-bordered table-hover" ID="GridView1" runat="server" AutoGenerateColumns="False" CellPadding="4" DataKeyNames="Id" DataSourceID="SqlDataSource1" ForeColor="#333333" GridLines="None">
-                <AlternatingRowStyle BackColor="White" />
-                <Columns>
-                    <asp:BoundField DataField="Id" HeaderText="Id" InsertVisible="False" ReadOnly="True" SortExpression="Id" />
-                    <asp:BoundField DataField="Correo" HeaderText="Correo" SortExpression="Correo" />
-                    <asp:BoundField DataField="Id_Rol" HeaderText="Id_Rol" SortExpression="Id_Rol" />
-                </Columns>
-                <FooterStyle BackColor="#990000" Font-Bold="True" ForeColor="White" />
-                <HeaderStyle BackColor="#990000" Font-Bold="True" ForeColor="White" />
-                <PagerStyle BackColor="#FFCC66" ForeColor="#333333" HorizontalAlign="Center" />
-                <RowStyle BackColor="#FFFBD6" ForeColor="#333333" />
-                <SelectedRowStyle BackColor="#FFCC66" Font-Bold="True" ForeColor="Navy" />
-                <SortedAscendingCellStyle BackColor="#FDF5AC" />
-                <SortedAscendingHeaderStyle BackColor="#4D0000" />
-                <SortedDescendingCellStyle BackColor="#FCF6C0" />
-                <SortedDescendingHeaderStyle BackColor="#820000" />
-            </asp:GridView>
-            <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:dbSSConnectionString %>" SelectCommand="SELECT * FROM [usuario]"></asp:SqlDataSource>
-        </div>
-    </form>
+    
+    
+    
+ 
 </div>
 
 

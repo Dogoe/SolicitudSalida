@@ -7,11 +7,16 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
+using System.Runtime.CompilerServices;
+using System.Web.Configuration;
+
 namespace PracticaCapas {
     
     
     public partial class Default {
         
+        //EmailLogin
+         //protected global::System.Web.UI.WebControls
         /// <summary>
         /// form1 control.
         /// </summary>
@@ -19,7 +24,8 @@ namespace PracticaCapas {
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlForm form1;
+        protected global::System.Web.UI.HtmlControls.HtmlForm formLogin;
+      
         
         /// <summary>
         /// btnCargarPage control.
@@ -28,7 +34,7 @@ namespace PracticaCapas {
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnCargarPage;
+        protected global::System.Web.UI.WebControls.Button btnTryLogin;
         
         /// <summary>
         /// GridView1 control.
@@ -38,6 +44,8 @@ namespace PracticaCapas {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.GridView GridView1;
+
+        protected global::System.Web.UI.WebControls.Label msj;
         
         /// <summary>
         /// SqlDataSource1 control.
@@ -47,5 +55,9 @@ namespace PracticaCapas {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.SqlDataSource SqlDataSource1;
+        //--------------------------------------
+        protected global::System.Web.UI.WebControls.TextBox EmailLogin;
+        protected global::System.Web.UI.WebControls.TextBox PassUser;
+      
     }
 }

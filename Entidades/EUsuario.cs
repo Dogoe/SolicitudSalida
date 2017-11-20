@@ -8,7 +8,7 @@
         private string _Email;
         private string _Contra;
         private int _NoEmpleado;
-        private char _Status;
+       
         #endregion
 
         #region Constructor
@@ -19,7 +19,7 @@
             Email = string.Empty;
             Contra = string.Empty;
             NoEmpleado = 0;
-            _Status = 'A';
+            
         }
         #endregion
 
@@ -53,11 +53,7 @@
             get { return _NoEmpleado; }
             set { _NoEmpleado = value; }
         }
-        public char Status
-        {
-            get { return _Status; }
-            set { _Status = value; }
-        }
+     
         #endregion
 
   }
