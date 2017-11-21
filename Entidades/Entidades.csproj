@@ -41,6 +41,7 @@
   <ItemGroup>
     <Compile Include="ERol_Usuario.cs" />
     <Compile Include="EUsuario.cs" />
+    <Compile Include="EUsuario_Uabc.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

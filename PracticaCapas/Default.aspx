@@ -46,15 +46,18 @@
                                 <div ></div>
                                 <div class="form-group">
                                     <label>Correo:</label>
-                                    <asp:TextBox ID= "EmailLogin" runat="server" class="form-control" placeholder="Email"></asp:TextBox>    
+                                    <asp:TextBox ID= "EmailLogin" runat="server" class="form-control" placeholder="Correo" required></asp:TextBox>    
                                 </div>
                                 <div class="form-group">
                                     <label>Contraseña:</label>
-                                    <asp:TextBox ID= "PassUser" runat="server" class="form-control" placeholder="Password"></asp:TextBox>
+                                    <asp:TextBox ID= "PassUser" runat="server" class="form-control" placeholder="Contraseña" type="password" required></asp:TextBox>
                                 </div>
                                 <asp:Button ID="btnTryLogin" runat="server" class="btn btn-success btn-block" type="submit" text="Ingresar" OnClick="btnTryLogin_click"/>
                                 
-                                <asp:Label ID="msj" class="alert alert-danger" runat="server"></asp:Label>
+                                
+                                <div id="divMsjErrorLogin" runat="server" class="alert alert-danger text-center form-group" hidden>
+                                    <asp:Label ID="msj" runat="server"></asp:Label>
+                                </div>
                                 
                                
                             </form>
@@ -70,9 +73,17 @@
     
  
 </div>
-
-
 <script src="Resources/Jquery-3.2.1/js/jquery-3.2.1.min.js"></script>
 <script src="Resources/bootstrap-3.3.7-dist/js/bootstrap.min.js"></script>
 </body>
+<footer>
+    <div class="container">
+        <div class="row">
+            <div class="text-center col-xs-12">
+                <p>Universidad Autónoma de Baja California</p>
+                <p>Diseñado por ©Dogo.</p>
+            </div>
+        </div>
+    </div>
+</footer>
 </html>

@@ -7,28 +7,40 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-using System.Runtime.CompilerServices;
-using System.Web.Configuration;
-
 namespace PracticaCapas {
     
     
     public partial class Default {
         
-        //EmailLogin
-         //protected global::System.Web.UI.WebControls
         /// <summary>
-        /// form1 control.
+        /// formLogin control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlForm formLogin;
-      
         
         /// <summary>
-        /// btnCargarPage control.
+        /// EmailLogin control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox EmailLogin;
+        
+        /// <summary>
+        /// PassUser control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox PassUser;
+        
+        /// <summary>
+        /// btnTryLogin control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
@@ -37,27 +49,21 @@ namespace PracticaCapas {
         protected global::System.Web.UI.WebControls.Button btnTryLogin;
         
         /// <summary>
-        /// GridView1 control.
+        /// divMsjErrorLogin control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.GridView GridView1;
-
-        protected global::System.Web.UI.WebControls.Label msj;
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl divMsjErrorLogin;
         
         /// <summary>
-        /// SqlDataSource1 control.
+        /// msj control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.SqlDataSource SqlDataSource1;
-        //--------------------------------------
-        protected global::System.Web.UI.WebControls.TextBox EmailLogin;
-        protected global::System.Web.UI.WebControls.TextBox PassUser;
-      
+        protected global::System.Web.UI.WebControls.Label msj;
     }
 }

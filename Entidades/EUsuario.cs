@@ -3,58 +3,26 @@
     public class EUsuario
     {
         #region Atributos
-        private string _Nombre;
-        private string _Apellido;
-        private string _Email;
-        private string _Contra;
-        private int _NoEmpleado;
-       
+        private int _Id;
+        private string _Correo;
+        private int _Id_Rol;
         #endregion
 
         #region Constructor
         public EUsuario()
         {
-            Nombre = string.Empty;
-            Apellido = string.Empty;
-            Email = string.Empty;
-            Contra = string.Empty;
-            NoEmpleado = 0;
-            
+            _Id = 0;
+        _Correo = string.Empty;
+        _Id_Rol = 0;
         }
+
+
         #endregion
 
-        #region Encapsulamineto
-        public string Nombre
-        {
-            get { return _Nombre; }
-            set { _Nombre = value; }
-        }
-
-        public string Apellido
-        {
-            get { return _Apellido; }
-            set { _Apellido = value; }
-        }
-
-        public string Email
-        {
-            get { return _Email; }
-            set { _Email = value; }
-        }
-
-        public string Contra
-        {
-            get { return _Contra; }
-            set { _Contra = value; }
-        }
-
-        public int NoEmpleado
-        {
-            get { return _NoEmpleado; }
-            set { _NoEmpleado = value; }
-        }
-     
+        #region Encapsulamientos
+        public int Id { get => _Id; set => _Id = value; }
+        public string Correo { get => _Correo; set => _Correo = value; }
+        public int Id_Rol { get => _Id_Rol; set => _Id_Rol = value; }
         #endregion
-
-  }
+    }
 }
