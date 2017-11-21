@@ -71,8 +71,8 @@
     <Content Include="Resources\bootstrap-3.3.7-dist\fonts\glyphicons-halflings-regular.ttf" />
     <Content Include="Resources\bootstrap-3.3.7-dist\fonts\glyphicons-halflings-regular.woff" />
     <Content Include="Resources\bootstrap-3.3.7-dist\fonts\glyphicons-halflings-regular.woff2" />
-    <Content Include="VistasAdministrador\Inicio.aspx" />
-    <Content Include="VistasAdministrador\UsuariosMaster.Master" />
+    <Content Include="VistasUsuario\Inicio.aspx" />
+    <Content Include="VistasUsuario\Usuarios.Master" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -102,19 +102,19 @@
       <DependentUpon>Default.aspx</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="VistasAdministrador\Inicio.aspx.cs">
+    <Compile Include="VistasUsuario\Inicio.aspx.cs">
       <DependentUpon>Inicio.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="VistasAdministrador\Inicio.aspx.designer.cs">
+    <Compile Include="VistasUsuario\Inicio.aspx.designer.cs">
       <DependentUpon>Inicio.aspx</DependentUpon>
     </Compile>
-    <Compile Include="VistasAdministrador\UsuariosMaster.Master.cs">
-      <DependentUpon>UsuariosMaster.Master</DependentUpon>
+    <Compile Include="VistasUsuario\Usuarios.Master.cs">
+      <DependentUpon>Usuarios.Master</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="VistasAdministrador\UsuariosMaster.Master.designer.cs">
-      <DependentUpon>UsuariosMaster.Master</DependentUpon>
+    <Compile Include="VistasUsuario\Usuarios.Master.designer.cs">
+      <DependentUpon>Usuarios.Master</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>

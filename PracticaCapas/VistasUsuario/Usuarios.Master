@@ -1,0 +1,80 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Usuarios.master.cs" Inherits="PracticaCapas.VistasUsuario.Usuarios" %>
+
+<!DOCTYPE>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+    <title>Solicitud de Salida</title>
+    <meta name= "viewport" content="width=device-width, user-scalable=no, initial-scale=1.0">
+    <link rel="stylesheet" href="../Resources/bootstrap-3.3.7-dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../Resources/estilos.css">
+    <asp:ContentPlaceHolder id="head" runat="server">
+        </asp:ContentPlaceHolder>
+</head>
+<body>
+<form class="container" id="form1" runat="server">
+    <header>
+        <div class="text-center">
+            <!--Banner de la UABC-->
+            <div class="row">
+                <div class="hidden-xs hidden-sm col-md-2 col-lg-2">
+                    <img src="Resources/img/logouabc.png" height="110">
+                </div>
+                <div class="col-sm-8 col-md-8 col-lg-8">
+                    <h1 class="uabc">Universidad Autónoma de Baja California</h1>
+                    <h3 class="facultad">Facultad de Ingeniería, Arquitectura y Diseño</h3>
+                </div>
+                <div class="hidden-xs hidden-sm col-md-2 col-lg-2">
+                    <img src="Resources/img/logofiad.png" height="110" class="logo">
+                </div>
+            </div>				
+            <hr>
+        </div>
+    </header>
+    <div class="container">
+         <div class="row">
+            <div class="col-sm-3">
+                <div>
+                    <asp:Label ID="labelPrueba" runat="server"></asp:Label>
+                    <span id="nombreUsuario" runat="server" class="glyphicon glyphicon-user" aria-hidden="true"></span>
+                    <br>
+                    <button id="BtnVerNotificaciones" runat="server" type="button" class="btn btn-link"><span class="glyphicon glyphicon-comment" aria-hidden="true"></span> Ver notificaciones<span class="badge">0</span></button>
+                    <br>
+                    <button id="BtnSolRealizadas" runat="server" type="button" class="btn btn-link"><span class="glyphicon glyphicon-folder-open" aria-hidden="true"></span> Solicitudes realizadas</button>
+                    <br>
+                    <button id="BtnGenerarNuevaSolicitud" runat="server" type="button" class="btn btn-link"><span class="glyphicon glyphicon-file" aria-hidden="true"></span> Generar nueva solicitud</button>
+                    <br>
+                    <button id="BtnHistorialSolicitud" runat="server" type="button" class="btn btn-link"><span class="glyphicon glyphicon-book" aria-hidden="true"></span> Historial de solicitudes</button>
+                    <br>
+                    <button type="button"class="btn btn-link"><span class="glyphicon glyphicon-cog" aria-hidden="true"></span> Administrar usuarios académicos</button>
+                    <br>
+                    <button id="BtnAyuda" runat="server" type="button" class="btn btn-link"><span class="glyphicon glyphicon-question-sign" aria-hidden="true"></span> Ayuda</button>
+                    <br>
+                    <button id="BtnCerrarSesion" runat="server" type="button" class="btn btn-link"><span class="glyphicon glyphicon-off" aria-hidden="true"></span> Cerrar sesión</button>
+                </div>
+                
+            </div>
+            <div class="col-sm-9">
+                <asp:ContentPlaceHolder id="ContentPlaceHolder" runat="server">
+                </asp:ContentPlaceHolder>
+            </div>
+            
+        </div>
+    </div>
+    
+    <footer>
+        <div class="container">
+            <div class="row">
+                <div class="text-center col-xs-12">
+                    <p>Universidad Autónoma de Baja California</p>
+                    <p>Diseñado por ©Dogo.</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+</form>
+
+<script src="../Resources/Jquery-3.2.1/js/jquery-3.2.1.min.js"></script>
+<script src="../Resources/bootstrap-3.3.7-dist/js/bootstrap.min.js"></script>
+</body>
+</html>
