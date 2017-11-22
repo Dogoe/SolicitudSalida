@@ -31,13 +31,13 @@ namespace PracticaCapas.VistasUsuario {
         protected global::System.Web.UI.HtmlControls.HtmlForm form1;
         
         /// <summary>
-        /// labelPrueba control.
+        /// labelNombreUsuario control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label labelPrueba;
+        protected global::System.Web.UI.WebControls.Label labelNombreUsuario;
         
         /// <summary>
         /// nombreUsuario control.
@@ -83,6 +83,15 @@ namespace PracticaCapas.VistasUsuario {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlButton BtnHistorialSolicitud;
+        
+        /// <summary>
+        /// BtnAdminUsuarios control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button BtnAdminUsuarios;
         
         /// <summary>
         /// BtnAyuda control.

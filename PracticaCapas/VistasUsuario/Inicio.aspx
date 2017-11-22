@@ -2,7 +2,7 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder" runat="server">
-    <div class="container">
-        <h1>Vista Usuario: </h1>
+    <div class="container text-center">
+        <asp:Label ID="despliegaNombre" runat="server"></asp:Label>
     </div>
 </asp:Content>

@@ -18,14 +18,14 @@
             <!--Banner de la UABC-->
             <div class="row">
                 <div class="hidden-xs hidden-sm col-md-2 col-lg-2">
-                    <img src="Resources/img/logouabc.png" height="110">
+                    <img src="../Resources/img/logouabc.png" height="110">
                 </div>
                 <div class="col-sm-8 col-md-8 col-lg-8">
                     <h1 class="uabc">Universidad Autónoma de Baja California</h1>
                     <h3 class="facultad">Facultad de Ingeniería, Arquitectura y Diseño</h3>
                 </div>
                 <div class="hidden-xs hidden-sm col-md-2 col-lg-2">
-                    <img src="Resources/img/logofiad.png" height="110" class="logo">
+                    <img src="../Resources/img/logofiad.png" height="110" class="logo">
                 </div>
             </div>				
             <hr>
@@ -33,10 +33,12 @@
     </header>
     <div class="container">
          <div class="row">
-            <div class="col-sm-3">
+            <div class="col-sm-3 panel panel-default">
                 <div>
-                    <asp:Label ID="labelPrueba" runat="server"></asp:Label>
-                    <span id="nombreUsuario" runat="server" class="glyphicon glyphicon-user" aria-hidden="true"></span>
+                    <div class="panel-heading">
+                        <asp:Label ID="labelNombreUsuario" runat="server"></asp:Label>
+                        <span id="nombreUsuario" runat="server" class="glyphicon glyphicon-user" aria-hidden="true"></span>
+                    </div>
                     <br>
                     <button id="BtnVerNotificaciones" runat="server" type="button" class="btn btn-link"><span class="glyphicon glyphicon-comment" aria-hidden="true"></span> Ver notificaciones<span class="badge">0</span></button>
                     <br>
@@ -46,7 +48,7 @@
                     <br>
                     <button id="BtnHistorialSolicitud" runat="server" type="button" class="btn btn-link"><span class="glyphicon glyphicon-book" aria-hidden="true"></span> Historial de solicitudes</button>
                     <br>
-                    <button type="button"class="btn btn-link"><span class="glyphicon glyphicon-cog" aria-hidden="true"></span> Administrar usuarios académicos</button>
+                    <asp:button id="BtnAdminUsuarios" runat="server"  type = "submit" class="btn btn-link" Text="Administrar Usuarios" OnClick="BtnAdministracionUsuario_click"></asp:button>
                     <br>
                     <button id="BtnAyuda" runat="server" type="button" class="btn btn-link"><span class="glyphicon glyphicon-question-sign" aria-hidden="true"></span> Ayuda</button>
                     <br>
@@ -74,7 +76,8 @@
     </footer>
 </form>
 
-<script src="../Resources/Jquery-3.2.1/js/jquery-3.2.1.min.js"></script>
+<!--<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js "></script>-->
+<script src="../Resources/Jquery-3.2.1/js/jquery-3.2.1.min.js"></script>    
 <script src="../Resources/bootstrap-3.3.7-dist/js/bootstrap.min.js"></script>
 </body>
 </html>
