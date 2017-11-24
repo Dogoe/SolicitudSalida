@@ -66,12 +66,15 @@
     <Reference Include="System.EnterpriseServices" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="FIAD.sql" />
     <Content Include="packages.config" />
     <Content Include="Resources\bootstrap-3.3.7-dist\fonts\glyphicons-halflings-regular.eot" />
     <Content Include="Resources\bootstrap-3.3.7-dist\fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Resources\bootstrap-3.3.7-dist\fonts\glyphicons-halflings-regular.ttf" />
     <Content Include="Resources\bootstrap-3.3.7-dist\fonts\glyphicons-halflings-regular.woff" />
     <Content Include="Resources\bootstrap-3.3.7-dist\fonts\glyphicons-halflings-regular.woff2" />
+    <Content Include="SS.sql" />
+    <Content Include="UABC.sql" />
     <Content Include="VistasUsuario\AdministrarUsuarios.aspx" />
     <Content Include="VistasUsuario\Inicio.aspx" />
     <Content Include="VistasUsuario\js\AdministrarUsuarios.js" />
