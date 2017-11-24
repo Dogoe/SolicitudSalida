@@ -74,6 +74,8 @@
     <Content Include="Resources\bootstrap-3.3.7-dist\fonts\glyphicons-halflings-regular.woff2" />
     <Content Include="VistasUsuario\AdministrarUsuarios.aspx" />
     <Content Include="VistasUsuario\Inicio.aspx" />
+    <Content Include="VistasUsuario\js\AdministrarUsuarios.js" />
+    <Content Include="VistasUsuario\js\AdmiUsuarios.js" />
     <Content Include="VistasUsuario\Usuarios.Master" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>

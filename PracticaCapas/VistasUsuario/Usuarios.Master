@@ -31,28 +31,29 @@
             <hr>
         </div>
     </header>
+    
     <div class="container">
          <div class="row">
+             
             <div class="col-sm-3 panel panel-default">
+
                 <div>
                     <div class="panel-heading">
                         <asp:Label ID="labelNombreUsuario" runat="server"></asp:Label>
                         <span id="nombreUsuario" runat="server" class="glyphicon glyphicon-user" aria-hidden="true"></span>
                     </div>
                     <br>
-                    <button id="BtnVerNotificaciones" runat="server" type="button" class="btn btn-link"><span class="glyphicon glyphicon-comment" aria-hidden="true"></span> Ver notificaciones<span class="badge">0</span></button>
-                    <br>
-                    <button id="BtnSolRealizadas" runat="server" type="button" class="btn btn-link"><span class="glyphicon glyphicon-folder-open" aria-hidden="true"></span> Solicitudes realizadas</button>
-                    <br>
-                    <button id="BtnGenerarNuevaSolicitud" runat="server" type="button" class="btn btn-link"><span class="glyphicon glyphicon-file" aria-hidden="true"></span> Generar nueva solicitud</button>
-                    <br>
-                    <button id="BtnHistorialSolicitud" runat="server" type="button" class="btn btn-link"><span class="glyphicon glyphicon-book" aria-hidden="true"></span> Historial de solicitudes</button>
-                    <br>
-                    <asp:button id="BtnAdminUsuarios" runat="server"  type = "submit" class="btn btn-link" Text="Administrar Usuarios" OnClick="BtnAdministracionUsuario_click"></asp:button>
-                    <br>
-                    <button id="BtnAyuda" runat="server" type="button" class="btn btn-link"><span class="glyphicon glyphicon-question-sign" aria-hidden="true"></span> Ayuda</button>
-                    <br>
-                    <button id="BtnCerrarSesion" runat="server" type="button" class="btn btn-link"><span class="glyphicon glyphicon-off" aria-hidden="true"></span> Cerrar sesión</button>
+                    <ul>
+                        <li><a href="Default.aspx">Login</a></li>
+                        <li id="linkInicio" runat="server"><span class="glyphicon glyphicon-comment btn btn-link" aria-hidden="true"></span><a href="../VistasUsuario/Inicio.aspx">Inicio </a></li>
+                        <li id="linkVerNotificaciones" runat="server"><span class="glyphicon glyphicon-comment btn btn-link" aria-hidden="true"></span><a href="../VistasUsuario/Inicio.aspx">Ver notificaciones</a></li>
+                        <li id="linkSolicitudesR" runat="server"><span class="glyphicon glyphicon-folder-open btn btn-link" aria-hidden="true"></span><a href="../VistasUsuario/Inicio.aspx">Solicitudes realizadas</a></li>
+                        <li id="linkGenerarSol" runat="server"><span class="glyphicon glyphicon-file btn btn-link" aria-hidden="true"></span><a href="../VistasUsuario/Inicio.aspx">Generar nueva solicitud</a></li>
+                        <li id="linkHistorialSol" runat="server"><span class="glyphicon glyphicon-book btn btn-link" aria-hidden="true"></span><a href="../VistasUsuario/Inicio.aspx">Historial de solicitudes</a></li>
+                        <li id="linkAdministrarUsuarios" runat="server"><span class="glyphicon glyphicon-cog btn btn-link" aria-hidden="true"></span><a href="../VistasUsuario/AdministrarUsuarios.aspx">Administrar Usuarios</a></li>
+                        <li id="linkAyuda" runat="server"><span class="glyphicon glyphicon-question-sign btn btn-link" aria-hidden="true"></span><a href="../VistasUsuario/Inicio.aspx">Ayuda</a></li>
+                        <li id="linkCerrarSesion"  runat="server"><span class="glyphicon glyphicon-off btn btn-link" aria-hidden="true"></span><a href="../Default.aspx" onclick="Cerrar_Session">Cerrar sesión</a></li>
+                    </ul>
                 </div>
                 
             </div>
@@ -63,20 +64,20 @@
             
         </div>
     </div>
-    
+
     <footer>
         <div class="container">
             <div class="row">
                 <div class="text-center col-xs-12">
                     <p>Universidad Autónoma de Baja California</p>
-                    <p>Diseñado por ©Dogo.</p>
+                    <p>Diseñado por ©JD.</p>
                 </div>
             </div>
         </div>
     </footer>
 </form>
 
-<!--<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js "></script>-->
+
 <script src="../Resources/Jquery-3.2.1/js/jquery-3.2.1.min.js"></script>    
 <script src="../Resources/bootstrap-3.3.7-dist/js/bootstrap.min.js"></script>
 </body>

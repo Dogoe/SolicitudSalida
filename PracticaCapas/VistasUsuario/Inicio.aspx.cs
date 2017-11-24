@@ -11,9 +11,9 @@ namespace PracticaCapas.VistasUsuario
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-          //this.MasterPageFile.
+            //this.MasterPageFile.
             //string nombre = Session["Nombre"].ToString();
-            despliegaNombre.Text = "Bienvenido Usuario: "+Session["Nombre"].ToString();
+            despliegaNombre.Text = "Bienvenido Usuario: ";
 
         }
     }

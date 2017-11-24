@@ -8,19 +8,20 @@ namespace Datos
     public class D_ConexionDB
     {
         public SqlConnection Conexion;
-        public string NombreConexionBaseDatos;
-
+        ///public string NombreConexionBaseDatos;
+        public String connectionString;
         public D_ConexionDB(string nombreConexionBaseDatos)
         {
-            NombreConexionBaseDatos = nombreConexionBaseDatos;
-            String connectionString = ConfigurationManager.ConnectionStrings[NombreConexionBaseDatos].ConnectionString;
-            Conexion = new SqlConnection(connectionString);      
+            //NombreConexionBaseDatos = nombreConexionBaseDatos;
+            connectionString = ConfigurationManager.ConnectionStrings[nombreConexionBaseDatos].ConnectionString;
+            //Conexion = new SqlConnection(connectionString);      
         }
         //------------------------------
         public void AbrirConexion()
         {
             try
             {
+                Conexion = new SqlConnection(connectionString);
                 if (Conexion.State == ConnectionState.Broken || Conexion.State == ConnectionState.Closed)
                     Conexion.Open();
             }
@@ -35,7 +36,11 @@ namespace Datos
             try
             {
                 if (Conexion.State == ConnectionState.Open)
+                {
+                    Conexion.Dispose();
                     Conexion.Close();
+                }
+                    
             }
             catch(Exception e)
             {

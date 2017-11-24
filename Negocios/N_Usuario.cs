@@ -39,13 +39,29 @@ namespace Negocios
         {
             return objNegocioUsuarios.CrearUsuario(nuevoUsuario);
         }
+        //--------------------------------------------
+        public bool ActualizarUsuario(EUsuario Usuario)
+        {
+            return objNegocioUsuarios.ActualizarUsuario(Usuario);
+        }
+        //-------------------------------------
+        public bool EliminarUsuarioPorId(int Id)
+        {
+            return objNegocioUsuarios.EliminarUsuarioPorId(Id);
+        }
+        //---------------------------------------------
         public DataSet ListaUsuario()
         {
             return objNegocioUsuarios.ListaUsuario();
         }
+        //---------------------------------------------
         public DataSet ListaUsuarioUabc()
         {
             return objNegocioUsuarios.ListaUsuariosUABC();
+        }
+        public DataSet ListaRoles()
+        {
+            return objNegocioUsuarios.ListaRoles();
         }
     }
     //------------------------------------

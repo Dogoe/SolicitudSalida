@@ -241,6 +241,90 @@ namespace Datos
             }
             //-------------------
         }
+        //--------------------------------------
+        public bool ActualizarUsuario(EUsuario Usuario)
+        {
+            SqlCommand cmd = new SqlCommand();
+            SqlDataReader dr;
+
+            try
+            {
+                dbSS.AbrirConexion();
+                cmd.Connection = dbSS.Conexion;
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.CommandText = "[dbo].[abcUsuario]";
+
+                cmd.Parameters.AddWithValue("@Accion", "MODIFICAR");
+                cmd.Parameters.AddWithValue("@Id", Usuario.Id);
+                cmd.Parameters.AddWithValue("@Correo", Usuario.Correo);
+                cmd.Parameters.AddWithValue("@Id_Rol", Usuario.Id_Rol);
+
+                dr = cmd.ExecuteReader();
+
+                if (dr.RecordsAffected >= 1)
+                {
+                    return true;
+                }
+                else
+                {
+                    return false;
+                }
+
+            }
+            catch (Exception e)
+            {
+                throw new Exception("Error al solicitar los datos del Usuario ", e);
+            }
+            finally
+            {
+                dbSS.CerrarConexion();
+                cmd.Dispose();
+
+            }
+            //-------------------
+        }
+        //-------------------------------------
+        public bool EliminarUsuarioPorId(int Id)
+        {
+            SqlCommand cmd = new SqlCommand();
+            SqlDataReader dr;
+
+            try
+            {
+                dbSS.AbrirConexion();
+                cmd.Connection = dbSS.Conexion;
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.CommandText = "[dbo].[abcUsuario]";
+
+                cmd.Parameters.AddWithValue("@Accion", "BORRAR");
+                cmd.Parameters.AddWithValue("@Id", Id);
+                cmd.Parameters.AddWithValue("@Correo", string.Empty);
+                cmd.Parameters.AddWithValue("@Id_Rol", -1);
+
+                dr = cmd.ExecuteReader();
+
+                if (dr.RecordsAffected >= 1)
+                {
+                    return true;
+                }
+                else
+                {
+                    return false;
+                }
+
+            }
+            catch (Exception e)
+            {
+                throw new Exception("Error al eliminar los datos del Usuario ", e);
+            }
+            finally
+            {
+                dbSS.CerrarConexion();
+                cmd.Dispose();
+
+            }
+            //-------------------
+        }
         //---------------------------------------------------------------
         //Funcion que retorna la lista completa de los datos de la tabla
         public DataSet ListaUsuario()
@@ -296,6 +380,35 @@ namespace Datos
             {
                 UsuariosUABC.CerrarConexion();
                 cmd.Dispose();
+            }
+            return ds;
+        }
+        //Funcion que retorna la lista completa de los datos de la tabla
+        public DataSet ListaRoles()
+        {
+            SqlCommand cmd = new SqlCommand();
+            DataSet ds = new DataSet();
+            SqlDataAdapter da = new SqlDataAdapter();
+
+            try
+            {
+                dbSS.AbrirConexion();
+                cmd.Connection = dbSS.Conexion;
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.CommandText = "[dbo].[ListaRol]";
+
+                da.SelectCommand = cmd;
+                da.Fill(ds);
+            }
+            catch (Exception e)
+            {
+                throw new Exception("Error al solicitar los datos la tabla", e);
+            }
+            finally
+            {
+                dbSS.CerrarConexion();
+                cmd.Dispose();
+                
             }
             return ds;
         }

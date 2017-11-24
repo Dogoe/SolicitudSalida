@@ -1,4 +1,5 @@
-﻿using Negocios;
+﻿using Entidades;
+using Negocios;
 using System;
 using System.Collections.Generic;
 using System.Configuration;
@@ -14,146 +15,118 @@ namespace PracticaCapas.VistasUsuario
 {
     public partial class AdministrarUsuarios : System.Web.UI.Page
     {
+        protected static N_Usuario nUsuario;
+        protected static DataSet datosListaUsuario;
+        protected static DataSet datosLista;
+
         protected void Page_Load(object sender, EventArgs e)
         {
-            if (!IsPostBack)
+            if(!IsPostBack)
             {
-                this.BindDummyRow();
+                nUsuario = new N_Usuario();
+                datosListaUsuario = nUsuario.ListaRoles();
+                foreach (DataRow row in datosListaUsuario.Tables[0].Rows)
+                {
+                    ListItem oItem = new ListItem(row.ItemArray[1].ToString() + " - " + row.ItemArray[2].ToString(), row.ItemArray[0].ToString());
+                    ddlRolPermisoForm.Items.Add(oItem);
+                }
+                ddlRolPermisoForm.DataBind();
+                CargarTablaUsuarios();
+               
+
             }
-            /*if(!IsPostBack)
-            {
-                N_Usuario nUsuario = new N_Usuario();
-                DataSet datosLista = nUsuario.ListaUsuarioUabc();
-                if (datosLista.Tables.Count > 0)
-                {
-                    GridView1.DataSource = datosLista;
-                    GridView1.DataBind();
-                    Console.Out.Write(datosLista);
-                }
-                else
-                {
-                    msj.Text = "Ocurrio un error al intentar cargar los datos de la base de datos.";
-                }
-
-            }*/
-
         }
+        //-------------------------------------------------
+        protected void Guardar_Usuario_click(object sender, EventArgs e)
+        {
+            
+            int Id = Convert.ToInt32(txtIdFormHide.Text);
+            string Correo = txtCorreoForm.Text;
+            //int Id_Rol = Convert.ToInt32(txtIdRolForm.Text);
+            //int Id_Rol_Prueba = Convert.ToInt32(ddlRolPermisoForm.SelectedIndex);
+            //int Id_Rol_Prueba = Convert.ToInt32(ddlRolPermisoForm.DataValueField.Length);
+            int Id_Rol = Convert.ToInt32(ddlRolPermisoForm.SelectedValue.ToString());
+            /*string Id = txtIdFormHide.Text;
+            string Id_Rol = txtIdRolForm.Text;*/
+            //----------------------------------------
+            EUsuario usuario = new EUsuario();
+            usuario.Id = Id;
+            usuario.Correo = Correo;
+            usuario.Id_Rol = Id_Rol;
+            nUsuario.ActualizarUsuario(usuario);
+            //------------------------------------
+            CargarTablaUsuarios();
+            //msj.Text = "SI funciona prro. mira keriko" +Id_Rol_Prueba + Correo + Id + Id_Rol;
+        }
+        //----------------------------------------------------
+        protected void Eliminar_Usuario_click(object sender, EventArgs e)
+        {
+            int Id = Convert.ToInt32(txtEliminarIdFormHide.Text.ToString());
+            if (nUsuario.EliminarUsuarioPorId(Id))
+            {
+
+            }
+            CargarTablaUsuarios();
+        }
+        
+
         //------------------------------------------------
-        private void BindDummyRow()
-        {
-            DataTable dummy = new DataTable();
-            dummy.Columns.Add("Id");
-            dummy.Columns.Add("Correo");
-            dummy.Columns.Add("Id_Rol");
-            dummy.Rows.Add();
-            gvUsuario.DataSource = dummy;
-            gvUsuario.DataBind();
-        }
         //------------------------------------
-        [WebMethod]
-        public static string GetUsuario()
+        private void CargarTablaUsuarios()
         {
-            string query = "SELECT Id, Correo, Id_Rol FROM Usuario";
-            SqlCommand cmd = new SqlCommand(query);
-            string constr = ConfigurationManager.ConnectionStrings["constr"].ConnectionString;
-            using (SqlConnection con = new SqlConnection(constr))
+            /*N_Usuario nUsuario = new N_Usuario();
+            DataSet datosLista = nUsuario.ListaUsuario();*/
+            datosLista = nUsuario.ListaUsuario();
+         
+            //ddlRolPermisoForm = new DropDownList();
+            if (datosLista.Tables.Count > 0)
             {
-                using (SqlDataAdapter sda = new SqlDataAdapter())
-                {
-                    cmd.Connection = con;
-                    sda.SelectCommand = cmd;
-                    using (DataSet ds = new DataSet())
-                    {
-                        sda.Fill(ds);
-                        return ds.GetXml();
-                    }
-                }
+
+                gvUsuario.DataSource = datosLista;
+                gvUsuario.DataBind();
+                //-------------------------
+                
+                //Console.Out.Write(datosLista);
+            }
+            else
+            {
+                msj.Text = "Ocurrio un error al intentar cargar los datos de la base de datos.";
             }
         }
-
-        /*[WebMethod]
-        public static bool CrearUsuario(string Correo, int Id_Rol)
+        /*protected DropDownList ObtenerNombreRolesParaDropDownL(DropDownList list)
         {
-            SqlCommand cmd = new SqlCommand();
-            SqlDataReader dr;
-
-            string constr = ConfigurationManager.ConnectionStrings["constr"].ConnectionString;
-            SqlConnection con = new SqlConnection(constr);
-            try
+            foreach (DataRow row in datosListaUsuario.Tables[0].Rows)
             {
-                //dbSS.AbrirConexion();
-                //cmd.Connection = dbSS.Conexion;
-                con.Open();
-                cmd.Connection = con;
-                cmd.CommandType = CommandType.StoredProcedure;
-                cmd.CommandText = "[dbo].[abcUsuario]";
-
-
-                cmd.Parameters.AddWithValue("@Accion", "INSERTAR");
-                cmd.Parameters.AddWithValue("@Id", -1);
-                cmd.Parameters.AddWithValue("@Correo", Correo);
-                cmd.Parameters.AddWithValue("@Id_Rol", Id_Rol);
-                //int Id = Convert.ToInt32(cmd.ExecuteScalar());
-
-                dr = cmd.ExecuteReader();
-
-                if (dr.RecordsAffected >= 1)
-                {
-                    return true;
-                }
-                else
-                {
-                    return false;
-                }
-
+                ListItem oItem = new ListItem(row.ItemArray[1].ToString() + " - " + row.ItemArray[2].ToString(), row.ItemArray[0].ToString());
+                list.Items.Add(oItem);
             }
-            catch (Exception e)
-            {
-                throw new Exception("Error al solicitar los datos del Usuario ", e);
-            }
-            finally
-            {
-                //dbSS.CerrarConexion();
-                con.Close();
-                cmd.Dispose();
-
-            }
-            //-------------------
+            return list;
         }*/
-        //--------------------------
-        [WebMethod]
-        public static void UpdateCustomer(int Id, string Correo, int Id_Rol)
+        //------------------------------------------
+        protected void OnRowDataBound(object sender, GridViewRowEventArgs e)
         {
-            string constr = ConfigurationManager.ConnectionStrings["constr"].ConnectionString;
-            using (SqlConnection con = new SqlConnection(constr))
+            /*N_Usuario nUsuario = new N_Usuario();
+            DataSet datosListaUsuario = nUsuario.ListaRoles();*/
+            if (e.Row.RowType == DataControlRowType.DataRow)
             {
-                using (SqlCommand cmd = new SqlCommand("UPDATE Usuario SET Correo = @Correo, Id_Rol = @Id_Rol WHERE Id = @Id"))
+                DropDownList ddlPermisosRol = (e.Row.FindControl("ddlPermisosRol") as DropDownList);
+                DropDownList ddlTemporal = new DropDownList();
+                //ddlPermisosRol = ObtenerNombreRolesParaDropDownL(ddlPermisosRol);
+                foreach (DataRow row in datosListaUsuario.Tables[0].Rows)
                 {
-                    cmd.Parameters.AddWithValue("@Id", Id);
-                    cmd.Parameters.AddWithValue("@Correo", Correo);
-                    cmd.Parameters.AddWithValue("@Id_Rol", Id_Rol);
-                    cmd.Connection = con;
-                    con.Open();
-                    cmd.ExecuteNonQuery();
-                    con.Close();
-                }
-            }
-        }
+                    ListItem iItem = new ListItem(row.ItemArray[1].ToString() + " - " + row.ItemArray[2].ToString(), row.ItemArray[0].ToString());
+                    //ddlPermisosRol.Items.Add(oItem);
+                    ddlTemporal.Items.Add(iItem);
 
-        [WebMethod]
-        public static void DeleteCustomer(int Id)
-        {
-            string constr = ConfigurationManager.ConnectionStrings["constr"].ConnectionString;
-            using (SqlConnection con = new SqlConnection(constr))
-            {
-                using (SqlCommand cmd = new SqlCommand("DELETE FROM Usuario WHERE Id = @Id"))
-                {
-                    cmd.Parameters.AddWithValue("@Id", Id);
-                    cmd.Connection = con;
-                    con.Open();
-                    cmd.ExecuteNonQuery();
-                    con.Close();
                 }
+                //ddlPermisosRol.DataBind();
+                ddlTemporal.DataBind();
+                string customerId = (e.Row.FindControl("lblPermisosRol") as Label).Text;
+                //ddlPermisosRol.Items.FindByValue(customerId).Selected = true;
+                ddlTemporal.Items.FindByValue(customerId).Selected = true;
+                ListItem oItem = ddlTemporal.Items.FindByValue(customerId);
+                ddlPermisosRol.Items.Add(oItem);
+                ddlPermisosRol.DataBind();
             }
         }
     }

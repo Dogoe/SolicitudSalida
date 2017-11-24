@@ -49,67 +49,76 @@ namespace PracticaCapas.VistasUsuario {
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl nombreUsuario;
         
         /// <summary>
-        /// BtnVerNotificaciones control.
+        /// linkInicio control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlButton BtnVerNotificaciones;
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl linkInicio;
         
         /// <summary>
-        /// BtnSolRealizadas control.
+        /// linkVerNotificaciones control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlButton BtnSolRealizadas;
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl linkVerNotificaciones;
         
         /// <summary>
-        /// BtnGenerarNuevaSolicitud control.
+        /// linkSolicitudesR control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlButton BtnGenerarNuevaSolicitud;
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl linkSolicitudesR;
         
         /// <summary>
-        /// BtnHistorialSolicitud control.
+        /// linkGenerarSol control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlButton BtnHistorialSolicitud;
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl linkGenerarSol;
         
         /// <summary>
-        /// BtnAdminUsuarios control.
+        /// linkHistorialSol control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button BtnAdminUsuarios;
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl linkHistorialSol;
         
         /// <summary>
-        /// BtnAyuda control.
+        /// linkAdministrarUsuarios control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlButton BtnAyuda;
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl linkAdministrarUsuarios;
         
         /// <summary>
-        /// BtnCerrarSesion control.
+        /// linkAyuda control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlButton BtnCerrarSesion;
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl linkAyuda;
+        
+        /// <summary>
+        /// linkCerrarSesion control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl linkCerrarSesion;
         
         /// <summary>
         /// ContentPlaceHolder control.
