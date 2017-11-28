@@ -41,7 +41,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="D_Actividad.cs" />
     <Compile Include="D_ConexionDB.cs" />
+    <Compile Include="D_Solicitud.cs" />
     <Compile Include="D_Usuario.cs" />
     <Compile Include="NombreBasesDeDatos.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

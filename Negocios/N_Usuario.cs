@@ -20,11 +20,11 @@ namespace Negocios
             return objNegocioUsuarios.ObtenerUsuarioPorCorreo(correo);
         }
         //--------------------------------------
-        public ERol_Usuario OptenerRolUsuarioPorId(int id)
+        public ERol_Usuario OptenerRolUsuarioPorId(int id_Rol)
         {
-            return objNegocioUsuarios.OptenerRolUsuarioPorId(id);
+            return objNegocioUsuarios.OptenerRolUsuarioPorId(id_Rol);
         }
-        //-------------------------------------------------
+        //------------------------------------------------
         public EUsuario_Uabc AutenticarUsuarioUabc(string loginEmail, string loginContra)
         {
             return objNegocioUsuarios.AutenticarUsuarioUabc(loginEmail, loginContra);
@@ -62,6 +62,16 @@ namespace Negocios
         public DataSet ListaRoles()
         {
             return objNegocioUsuarios.ListaRoles();
+        }
+        //----------------------
+        public DataSet ListaCarrera()
+        {
+            return objNegocioUsuarios.ListaCarrera();
+        }
+        //--------------------------
+        public ECarrera ObtenerCarreraCoordinador(int idCoordinadorUsuario)
+        {
+            return objNegocioUsuarios.ObtenerCarreraCoordinador(idCoordinadorUsuario);
         }
     }
     //------------------------------------

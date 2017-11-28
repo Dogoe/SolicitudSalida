@@ -20,7 +20,7 @@ namespace PracticaCapas.VistasUsuario
             //string nombre = (string)Session["Nombre"];
             EUsuario_Uabc usuario= (EUsuario_Uabc)Session["Usuario"];
             //--------------------------------------------------------------------
-            if (usuario.Nombre != null)
+            if (usuario.Nombre != null )
             {
                 labelNombreUsuario.Text = " " + usuario.Nombre;
                 rolUser = nUsuario.OptenerRolUsuarioPorId((int)Session["Id_Rol"]);

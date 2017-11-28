@@ -12,29 +12,29 @@
         </asp:ContentPlaceHolder>
 </head>
 <body>
-<form class="container" id="form1" runat="server">
+    <!--Cabecera-->
     <header>
-        <div class="text-center">
-            <!--Banner de la UABC-->
-            <div class="row">
-                <div class="hidden-xs hidden-sm col-md-2 col-lg-2">
-                    <img src="../Resources/img/logouabc.png" height="110">
-                </div>
-                <div class="col-sm-8 col-md-8 col-lg-8">
-                    <h1 class="uabc">Universidad Autónoma de Baja California</h1>
-                    <h3 class="facultad">Facultad de Ingeniería, Arquitectura y Diseño</h3>
-                </div>
-                <div class="hidden-xs hidden-sm col-md-2 col-lg-2">
-                    <img src="../Resources/img/logofiad.png" height="110" class="logo">
-                </div>
-            </div>				
-            <hr>
-        </div>
+         <div class="text-center">
+             <!--Banner de la UABC-->
+             <div class="row">
+                 <div class="hidden-xs hidden-sm col-md-2 col-lg-2">
+                     <img src="../Resources/img/logouabc.png" height="110">
+                 </div>
+                 <div class="col-sm-8 col-md-8 col-lg-8">
+                     <h1 class="uabc">Universidad Autónoma de Baja California</h1>
+                     <h3 class="facultad">Facultad de Ingeniería, Arquitectura y Diseño</h3>
+                 </div>
+                 <div class="hidden-xs hidden-sm col-md-2 col-lg-2">
+                     <img src="../Resources/img/logofiad.png" height="110" class="logo">
+                 </div>
+             </div>
+             <hr>
+         </div>
     </header>
-    
+    <!--Contenido principal-->
     <div class="container">
-         <div class="row">
-             
+        <div class="row">
+
             <div class="col-sm-3 panel panel-default">
 
                 <div>
@@ -44,27 +44,26 @@
                     </div>
                     <br>
                     <ul>
-                        <li><a href="Default.aspx">Login</a></li>
                         <li id="linkInicio" runat="server"><span class="glyphicon glyphicon-comment btn btn-link" aria-hidden="true"></span><a href="../VistasUsuario/Inicio.aspx">Inicio </a></li>
                         <li id="linkVerNotificaciones" runat="server"><span class="glyphicon glyphicon-comment btn btn-link" aria-hidden="true"></span><a href="../VistasUsuario/Inicio.aspx">Ver notificaciones</a></li>
-                        <li id="linkSolicitudesR" runat="server"><span class="glyphicon glyphicon-folder-open btn btn-link" aria-hidden="true"></span><a href="../VistasUsuario/Inicio.aspx">Solicitudes realizadas</a></li>
-                        <li id="linkGenerarSol" runat="server"><span class="glyphicon glyphicon-file btn btn-link" aria-hidden="true"></span><a href="../VistasUsuario/Inicio.aspx">Generar nueva solicitud</a></li>
-                        <li id="linkHistorialSol" runat="server"><span class="glyphicon glyphicon-book btn btn-link" aria-hidden="true"></span><a href="../VistasUsuario/Inicio.aspx">Historial de solicitudes</a></li>
+                        <li id="linkSolicitudesR" runat="server"><span class="glyphicon glyphicon-folder-open btn btn-link" aria-hidden="true"></span><a href="../VistasUsuario/SolicitudesRealizadas.aspx">Solicitudes realizadas</a></li>
+                        <li id="linkGenerarSol" runat="server"><span class="glyphicon glyphicon-file btn btn-link" aria-hidden="true"></span><a href="../VistasUsuario/GenerarSolicitud.aspx">Generar nueva solicitud</a></li>
+                        <li id="linkHistorialSol" runat="server"><span class="glyphicon glyphicon-book btn btn-link" aria-hidden="true"></span><a href="../VistasUsuario/HistorialSolicitudes.aspx">Historial de solicitudes</a></li>
                         <li id="linkAdministrarUsuarios" runat="server"><span class="glyphicon glyphicon-cog btn btn-link" aria-hidden="true"></span><a href="../VistasUsuario/AdministrarUsuarios.aspx">Administrar Usuarios</a></li>
                         <li id="linkAyuda" runat="server"><span class="glyphicon glyphicon-question-sign btn btn-link" aria-hidden="true"></span><a href="../VistasUsuario/Inicio.aspx">Ayuda</a></li>
-                        <li id="linkCerrarSesion"  runat="server"><span class="glyphicon glyphicon-off btn btn-link" aria-hidden="true"></span><a href="../Default.aspx" onclick="Cerrar_Session">Cerrar sesión</a></li>
+                        <li id="linkCerrarSesion" runat="server"><span class="glyphicon glyphicon-off btn btn-link" aria-hidden="true"></span><a href="../Default.aspx" onclick="Cerrar_Session">Cerrar sesión</a></li>
                     </ul>
                 </div>
-                
+
             </div>
             <div class="col-sm-9">
-                <asp:ContentPlaceHolder id="ContentPlaceHolder" runat="server">
+                <asp:ContentPlaceHolder ID="ContentPlaceHolder" runat="server">
                 </asp:ContentPlaceHolder>
             </div>
-            
+
         </div>
     </div>
-
+    <!--Pie-->
     <footer>
         <div class="container">
             <div class="row">
@@ -75,10 +74,11 @@
             </div>
         </div>
     </footer>
-</form>
+
 
 
 <script src="../Resources/Jquery-3.2.1/js/jquery-3.2.1.min.js"></script>    
 <script src="../Resources/bootstrap-3.3.7-dist/js/bootstrap.min.js"></script>
+<script src="../Resources/bootstrap-3.3.7-dist/js/npm.js"></script>
 </body>
 </html>

@@ -68,7 +68,7 @@ namespace Datos
             return null;
         }
         //------------------------------------------------------------------------
-        public ERol_Usuario OptenerRolUsuarioPorId(int id)
+        public ERol_Usuario OptenerRolUsuarioPorId(int id_Rol)
         {
             SqlCommand cmd = new SqlCommand();
             SqlDataReader dr;
@@ -79,16 +79,16 @@ namespace Datos
                 dbSS.AbrirConexion();
                 cmd.Connection = dbSS.Conexion;
                 cmd.CommandType = CommandType.StoredProcedure;
-                cmd.CommandText = "[dbo].[SeleccionaUsuarioRol]";
+                cmd.CommandText = "[dbo].[OptenerRolUsuarioPorID]";
 
-                cmd.Parameters.AddWithValue("@Id", id);
+                cmd.Parameters.AddWithValue("@Id_Rol", id_Rol);
 
                 dr = cmd.ExecuteReader();
 
                 if (dr.Read())
                 {
                     rol_usuario_encontrado.IdRol = Convert.ToInt32(dr["Id"].ToString());
-                    rol_usuario_encontrado.NombreRol = dr["Nombre"].ToString();
+                    rol_usuario_encontrado.NombreRol = dr["Nombre_Rol"].ToString();
                     rol_usuario_encontrado.DescripcionRol = dr["Descripcion"].ToString();
                     dr.Close();
                     //-----------------------------
@@ -338,7 +338,7 @@ namespace Datos
                 dbSS.AbrirConexion();
                 cmd.Connection = dbSS.Conexion;
                 cmd.CommandType = CommandType.StoredProcedure;
-                cmd.CommandText = "[dbo].[ListadoUsuario]";
+                cmd.CommandText = "[dbo].[ListadoUsuarioRolCarrera]";
 
                 da.SelectCommand = cmd;
                 da.Fill(ds);
@@ -411,6 +411,77 @@ namespace Datos
                 
             }
             return ds;
+        }
+        //-------------------------------------
+        public DataSet ListaCarrera()
+        {
+            SqlCommand cmd = new SqlCommand();
+            DataSet ds = new DataSet();
+            SqlDataAdapter da = new SqlDataAdapter();
+
+            try
+            {
+                dbSS.AbrirConexion();
+                cmd.Connection = dbSS.Conexion;
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.CommandText = "[dbo].[ListaCarrera]";
+
+                da.SelectCommand = cmd;
+                da.Fill(ds);
+            }
+            catch (Exception e)
+            {
+                throw new Exception("Error al solicitar los datos la tabla", e);
+            }
+            finally
+            {
+                dbSS.CerrarConexion();
+                cmd.Dispose();
+                
+            }
+            return ds;
+        }
+        //-------------------------------------
+        public ECarrera ObtenerCarreraCoordinador(int idCoordinadorUsuario)
+        {
+            SqlCommand cmd = new SqlCommand();
+            SqlDataReader dr;
+
+            try
+            {
+                dbSS.AbrirConexion();
+                cmd.Connection = dbSS.Conexion;
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.CommandText = "[dbo].[SeleccionaCarreraCoordinador]";
+                    
+                cmd.Parameters.AddWithValue("@Id_Usuario_Coordinador",idCoordinadorUsuario);
+
+                dr = cmd.ExecuteReader();
+
+                if (dr.Read())
+                {
+                    ECarrera carreraEncontrada= new ECarrera();
+                    //EUsuario usuarioEncontrado = new EUsuario();
+                    carreraEncontrada.Id = Convert.ToInt32(dr["Id"].ToString());
+                    carreraEncontrada.NombreCarrera = dr["Nomnre"].ToString();
+                    carreraEncontrada.IdUsuarioCoordinador = Convert.ToInt32(dr["Id_Usuario_Coordinador"].ToString());
+                     dr.Close();
+                     return carreraEncontrada;
+                     //-----------------------------
+                }
+
+            }
+            catch (Exception e)
+            {
+                throw new Exception("Error al solicitar los datos", e);
+            }
+            finally
+            {
+                dbSS.CerrarConexion();
+                cmd.Dispose();
+            }
+            return null;
+            //-------------------
         }
     }
 }

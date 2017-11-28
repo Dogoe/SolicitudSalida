@@ -2,46 +2,46 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder" runat="server">
-
+   
+    <form id="formUsuariosAcademicos" runat="server"> 
     <div>
         <asp:Label ID="msj" Text="" runat="server" />
-        <asp:GridView ID="gvUsuario" class="table table-bordered table-hover" runat="server" AutoGenerateColumns="false" OnRowDataBound="OnRowDataBound">
+        <asp:GridView ID="gvUsuario" CssClass="table table-responsive table-bordered table-striped" 
+            runat="server" OnPageIndexChanging="gvUsuario_PageIndexChanging" AllowPaging="True" PageSize="6" AutoGenerateColumns="false">
             <Columns>
-                <asp:TemplateField HeaderText="Id"  ItemStyle-CssClass="Id">
+                <asp:TemplateField HeaderText="Nombre Rol"  ItemStyle-CssClass="Nombre_Rol control-label">
                     <ItemTemplate>
-                        <asp:Label Text='<%# Eval("Id") %>' runat="server"/>
+                        <small><asp:Label Text='<%# Eval("Nombre_Rol") %>' runat="server" CssClass="control-label"/></small>
                     </ItemTemplate>
                 </asp:TemplateField>
-                <asp:TemplateField HeaderText="Correo"  ItemStyle-CssClass="Correo">
+                <asp:TemplateField HeaderText="Descripcion" ItemStyle-Width="" ItemStyle-CssClass="Descripcion control-label">
                     <ItemTemplate>
-                        <asp:Label Text='<%# Eval("Correo") %>' runat="server"/>
+                        <small><asp:Label Text='<%# Eval("Descripcion") %>' runat="server" CssClass="control-label" /></small>
+                        <asp:TextBox Text='<%# Eval("Descripcion") %>' runat="server" Style="display: none" />
+                    </ItemTemplate>
+                </asp:TemplateField>
+                <asp:TemplateField HeaderText="Carrera" ItemStyle-Width="" ItemStyle-CssClass="Descripcion control-label">
+                    <ItemTemplate>
+                        <small><asp:Label Text='<%# Eval("Nombre_carrera") %>' runat="server" /></small>
+                        <asp:TextBox Text='<%# Eval("Nombre_carrera") %>' runat="server" Style="display: none" />
+                    </ItemTemplate>
+                </asp:TemplateField>
+                <asp:TemplateField HeaderText="Correo"  ItemStyle-CssClass="Correo control-label">
+                    <ItemTemplate>
+                        <small> <asp:Label Text='<%# Eval("Correo") %>' runat="server" CssClass="control-label"/></small> 
                         <asp:TextBox Text='<%# Eval("Correo") %>' runat="server" Style="display: none" />
                     </ItemTemplate>
                 </asp:TemplateField>
-                <asp:TemplateField HeaderText="Id_Rol" ItemStyle-Width="90px" ItemStyle-CssClass="Id_Rol">
-                    <ItemTemplate>
-                        <asp:Label Text='<%# Eval("Id_Rol") %>' runat="server" />
-                        <asp:TextBox Text='<%# Eval("Id_Rol") %>' runat="server" Style="display: none" />
-                    </ItemTemplate>
-                </asp:TemplateField>
-                <asp:TemplateField HeaderText = "Rol-Permisos">
-                    <ItemTemplate>
-                        <asp:Label ID="lblPermisosRol" Text='<%# Eval("Id_Rol") %>' runat="server" Visible = "false"/>
-                        <asp:DropDownList ID="ddlPermisosRol" runat="server" CssClass="form-control" disabled="true">
-                        </asp:DropDownList>
-                    </ItemTemplate>
-                </asp:TemplateField>
-               
                 
                 <asp:TemplateField>
                     <ItemTemplate>
-                        <button id="<%# Eval("Id") %>" type="button" class="Editar btn btn-info">Editar</button>
-                        <asp:Button ID="BtnDelete" Text="Eliminar" runat="server" CssClass="Eliminar btn btn-danger"/>
+                        <button type="button" class="Editar btn btn-primary btn-xs glyphicon glyphicon-pencil"></button>
+                        <asp:Button ID="BtnDelete" Text="" runat="server" CssClass="Eliminar btn btn-danger btn-xs glyphicon glyphicon-remove-sign" Style="display: none"/>
                     </ItemTemplate>
                 </asp:TemplateField>
             </Columns>
         </asp:GridView>
-
+        <i>Estas viendo <%=gvUsuario.PageIndex + 1%> de <%=gvUsuario.PageCount%> Registros</i>
          <!-- Trigger the modal with a button -->
 
          <!-- Modal -->
@@ -64,13 +64,10 @@
                           <label for="txtCorreoForm">Correo:</label>
                           <asp:TextBox ID="txtCorreoForm" class="form-control" text="" runat="server" placeholder="Correo"/>
                         </div>
-                        <div class="form-group">
-                          <label for="txtIdRolForm">Id_Rol:</label>
-                          <asp:TextBox ID="txtIdRolForm" class="form-control" text="" runat="server" placeholder="Rol" Style="display: none"/>
-                        </div>
+                       
                         <div class="form-group">
                           <label for="txtIdRolForm">Rol-Permiso:</label>
-                          <asp:DropDownList ID="ddlRolPermisoForm" runat="server" CssClass="form-control"> 
+                          <asp:DropDownList ID="ddlRolPermisoForm" runat="server" CssClass="form-control" disabled="true"> 
                           </asp:DropDownList>
                         </div>
                     </div>
@@ -103,8 +100,9 @@
 
              </div>
          </div>
-         <script src="../Resources/Jquery-3.2.1/js/jquery-3.2.1.min.js"></script> 
+        
         <script src="../VistasUsuario/js/AdmiUsuarios.js"></script>
     
     </div>
+    </form>
 </asp:Content>

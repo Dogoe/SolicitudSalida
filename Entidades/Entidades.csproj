@@ -39,9 +39,17 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="EActividad.cs" />
+    <Compile Include="ECarrera.cs" />
+    <Compile Include="ECategoria.cs" />
+    <Compile Include="EEstado.cs" />
+    <Compile Include="EEvento.cs" />
+    <Compile Include="ERecurso_Solicitado.cs" />
     <Compile Include="ERol_Usuario.cs" />
+    <Compile Include="ESolicitud.cs" />
     <Compile Include="EUsuario.cs" />
     <Compile Include="EUsuario_Uabc.cs" />
+    <Compile Include="EValidacion.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

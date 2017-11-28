@@ -18,6 +18,7 @@ namespace PracticaCapas
         }*/
         protected void btnTryLogin_click(object sender, EventArgs e)
         {
+            //Server.Transfer("~/VistasUsuario/Inicio.aspx", true);
             N_Usuario nUsuario = new N_Usuario();
             bool userFiad;
             EUsuario usuario;
@@ -75,7 +76,7 @@ namespace PracticaCapas
 
 
             }
-            
+
         }
     }
 }

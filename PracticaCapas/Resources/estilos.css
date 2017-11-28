@@ -1,4 +1,4 @@
-* {
+*{
     margin: 0;
     padding: 0;
 }
@@ -14,7 +14,6 @@ body {
 {
     cursor: pointer;
 }
-.hide-close .ui-dialog-titlebar-close { display: none !important}
 /*    --------------------------------------------------
     :: Header
     -------------------------------------------------- */
@@ -123,121 +122,48 @@ td
     vertical-align:middle;
 }
 /*----------------------------------------------*/
-body,html{
-    height: 100%;
+/*gridview*/
+.table table tbody tr td a,
+.table table tbody tr td span {
+    position: relative;
+    float: left;
+    padding: 6px 12px;
+    margin-left: -1px;
+    line-height: 1.42857143;
+    color: #337ab7;
+    text-decoration: none;
+    background-color: #fff;
+    border: 1px solid #ddd;
 }
 
-nav.sidebar, .main{
-    -webkit-transition: margin 200ms ease-out;
-    -moz-transition: margin 200ms ease-out;
-    -o-transition: margin 200ms ease-out;
-    transition: margin 200ms ease-out;
+.table table > tbody > tr > td > span {
+    z-index: 3;
+    color: #fff;
+    cursor: default;
+    background-color: #337ab7;
+    border-color: #337ab7;
 }
 
-.main{
-    padding: 10px 10px 0 10px;
+.table table > tbody > tr > td:first-child > a,
+.table table > tbody > tr > td:first-child > span {
+    margin-left: 0;
+    border-top-left-radius: 4px;
+    border-bottom-left-radius: 4px;
 }
 
-@media (min-width: 765px) {
-
-    .main{
-        position: absolute;
-        width: calc(100% - 40px);
-        margin-left: 40px;
-        float: right;
-    }
-
-    nav.sidebar:hover + .main{
-        margin-left: 200px;
-    }
-
-    nav.sidebar.navbar.sidebar>.container .navbar-brand, .navbar>.container-fluid .navbar-brand {
-        margin-left: 0px;
-    }
-
-    nav.sidebar .navbar-brand, nav.sidebar .navbar-header{
-        text-align: center;
-        width: 100%;
-        margin-left: 0px;
-    }
-
-    nav.sidebar a{
-        padding-right: 13px;
-    }
-
-    nav.sidebar .navbar-nav > li:first-child{
-        border-top: 1px #e5e5e5 solid;
-    }
-
-    nav.sidebar .navbar-nav > li{
-        border-bottom: 1px #e5e5e5 solid;
-    }
-
-    nav.sidebar .navbar-nav .open .dropdown-menu {
-        position: static;
-        float: none;
-        width: auto;
-        margin-top: 0;
-        background-color: transparent;
-        border: 0;
-        -webkit-box-shadow: none;
-        box-shadow: none;
-    }
-
-    nav.sidebar .navbar-collapse, nav.sidebar .container-fluid{
-        padding: 0 0px 0 0px;
-    }
-
-    .navbar-inverse .navbar-nav .open .dropdown-menu>li>a {
-        color: #777;
-    }
-
-    nav.sidebar{
-        width: 200px;
-        height: 100%;
-        margin-left: -160px;
-        float: left;
-        margin-bottom: 0px;
-    }
-
-    nav.sidebar li {
-        width: 100%;
-    }
-
-    nav.sidebar:hover{
-        margin-left: 0px;
-    }
-
-    .forAnimate{
-        opacity: 0;
-    }
+.table table > tbody > tr > td:last-child > a,
+.table table > tbody > tr > td:last-child > span {
+    border-top-right-radius: 4px;
+    border-bottom-right-radius: 4px;
 }
 
-@media (min-width: 1330px) {
-
-    .main{
-        width: calc(100% - 200px);
-        margin-left: 200px;
-    }
-
-    nav.sidebar{
-        margin-left: 0px;
-        float: left;
-    }
-
-    nav.sidebar .forAnimate{
-        opacity: 1;
-    }
+.table table > tbody > tr > td > a:hover,
+.table table > tbody > tr > td > span:hover,
+.table table > tbody > tr > td > a:focus,
+.table table > tbody > tr > td > span:focus {
+    z-index: 2;
+    color: #23527c;
+    background-color: #eee;
+    border-color: #ddd;
 }
-
-nav.sidebar .navbar-nav .open .dropdown-menu>li>a:hover, nav.sidebar .navbar-nav .open .dropdown-menu>li>a:focus {
-    color: #CCC;
-    background-color: transparent;
-}
-
-nav:hover .forAnimate{
-    opacity: 1;
-}
-section{
-    padding-left: 15px;
-}
+/*end gridview */

@@ -13,6 +13,15 @@ namespace PracticaCapas.VistasUsuario {
     public partial class AdministrarUsuarios {
         
         /// <summary>
+        /// formUsuariosAcademicos control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlForm formUsuariosAcademicos;
+        
+        /// <summary>
         /// msj control.
         /// </summary>
         /// <remarks>
@@ -56,15 +65,6 @@ namespace PracticaCapas.VistasUsuario {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtCorreoForm;
-        
-        /// <summary>
-        /// txtIdRolForm control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtIdRolForm;
         
         /// <summary>
         /// ddlRolPermisoForm control.
