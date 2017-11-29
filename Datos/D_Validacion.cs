@@ -1,19 +1,23 @@
 ﻿using Entidades;
 using System;
+using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlClient;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 
 namespace Datos
 {
-    public class D_Actividad
+    public class D_Validacion
     {
         private D_ConexionDB dbSS = new D_ConexionDB(NombreBasesDeDatos.DbSsConnectionString.ToString());//base de datos del sistema
-        public D_Actividad()
+        public D_Validacion()
         {
 
         }
-        //---------------------------------------------------
-        public int Guardar_Actividad(EActividad tempActividad, string instruccion)
+        //------------------------------------------
+        public int Guardar_Validacion(EValidacion tempValidacion, string instruccion)
         {
             SqlCommand cmd = new SqlCommand();
             SqlDataReader dr;
@@ -24,24 +28,24 @@ namespace Datos
                 dbSS.AbrirConexion();
                 cmd.Connection = dbSS.Conexion;
                 cmd.CommandType = CommandType.StoredProcedure;
-                cmd.CommandText = "[dbo].[ABCActividad]";
+                cmd.CommandText = "[dbo].[ABCValidacion]";
 
                 cmd.Parameters.AddWithValue("@Accion", instruccion);
                 if (instruccion == "INSERTAR")
-                { 
+                {
                     cmd.Parameters.AddWithValue("@Id", -1);
                 }
                 else
                 {
-                    cmd.Parameters.AddWithValue("@Id", tempActividad.Id);
+                    cmd.Parameters.AddWithValue("@Id", tempValidacion.Id);
                 }
-                
-                cmd.Parameters.AddWithValue("@CACEI", tempActividad.CACEI);
-                cmd.Parameters.AddWithValue("@Licenciatura", tempActividad.Licenciatura);
-                cmd.Parameters.AddWithValue("@Personal", tempActividad.Personal);
-                cmd.Parameters.AddWithValue("@ISO", tempActividad.ISO);
-                cmd.Parameters.AddWithValue("@Posgrado", tempActividad.Posgrado);
-                cmd.Parameters.AddWithValue("@Otro", tempActividad.Otro);
+
+                cmd.Parameters.AddWithValue("@Coordinador", tempValidacion.Coordinador);
+                cmd.Parameters.AddWithValue("@Subdirector", tempValidacion.Subdirector);
+                cmd.Parameters.AddWithValue("@Administrador", tempValidacion.Administrador);
+                cmd.Parameters.AddWithValue("@Director", tempValidacion.Director);
+                cmd.Parameters.AddWithValue("@Posgrado", tempValidacion.Posgrado);
+                cmd.Parameters.AddWithValue("@Unica", tempValidacion.Unica);
 
                 dr = cmd.ExecuteReader();
                 int i = 0;
@@ -64,7 +68,7 @@ namespace Datos
             }
         }
         //----------------------------------------------------
-        public bool EliminarActividadPorId(int idActividad)
+        public bool EliminarValidacionPorId(int idValidacion)
         {
             SqlCommand cmd = new SqlCommand();
             SqlDataReader dr;
@@ -74,17 +78,17 @@ namespace Datos
                 dbSS.AbrirConexion();
                 cmd.Connection = dbSS.Conexion;
                 cmd.CommandType = CommandType.StoredProcedure;
-                cmd.CommandText = "[dbo].[ABCActividad]";
+                cmd.CommandText = "[dbo].[ABCValidacion]";
 
                 cmd.Parameters.AddWithValue("@Accion", "BORRAR");
-                cmd.Parameters.AddWithValue("@Id", idActividad);
+                cmd.Parameters.AddWithValue("@Id", idValidacion);
                 //En este caso solo nos sirve el id, los parametros ue sigen solo se mandan para ue no suceda un error
-                cmd.Parameters.AddWithValue("@CACEI", false);
-                cmd.Parameters.AddWithValue("@Licenciatura", false);
-                cmd.Parameters.AddWithValue("@Personal", false);
-                cmd.Parameters.AddWithValue("@ISO", false);
+                cmd.Parameters.AddWithValue("@Coordinador", false);
+                cmd.Parameters.AddWithValue("@Subdirector", false);
+                cmd.Parameters.AddWithValue("@Administrador", false);
+                cmd.Parameters.AddWithValue("@Director", false);
                 cmd.Parameters.AddWithValue("@Posgrado", false);
-                cmd.Parameters.AddWithValue("@Otro", "Nada");
+                cmd.Parameters.AddWithValue("@Unica", false);
 
                 dr = cmd.ExecuteReader();
 
@@ -110,7 +114,7 @@ namespace Datos
             }
         }
         //--------------------------------------------------------------
-        public DataSet ConsultarActividades()
+        public DataSet ConsultarValidaciones()
         {
             SqlCommand cmd = new SqlCommand();
             DataSet ds = new DataSet();
@@ -121,16 +125,15 @@ namespace Datos
                 dbSS.AbrirConexion();
                 cmd.Connection = dbSS.Conexion;
                 cmd.CommandType = CommandType.StoredProcedure;
-                cmd.CommandText = "[dbo].[ABCActividad]";
+                cmd.CommandText = "[dbo].[ABCValidacion]";
                 cmd.Parameters.AddWithValue("@Accion", "CONSULTAR");
                 //En este caso no necesita ningun parametro, pero se mandan para no tener algun error
-                cmd.Parameters.AddWithValue("@Id", -1);
-                cmd.Parameters.AddWithValue("@CACEI", false);
-                cmd.Parameters.AddWithValue("@Licenciatura", false);
-                cmd.Parameters.AddWithValue("@Personal", false);
-                cmd.Parameters.AddWithValue("@ISO", false);
+                cmd.Parameters.AddWithValue("@Coordinador", false);
+                cmd.Parameters.AddWithValue("@Subdirector", false);
+                cmd.Parameters.AddWithValue("@Administrador", false);
+                cmd.Parameters.AddWithValue("@Director", false);
                 cmd.Parameters.AddWithValue("@Posgrado", false);
-                cmd.Parameters.AddWithValue("@Otro", "Nada");
+                cmd.Parameters.AddWithValue("@Unica", false);
 
                 da.SelectCommand = cmd;
                 da.Fill(ds);

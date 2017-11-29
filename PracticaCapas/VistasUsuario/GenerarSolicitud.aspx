@@ -55,7 +55,7 @@
             <div class="col-md-3 col-lg-3">
                 <div class="form-group">
                     <label for="fecha">Fecha de Salida*</label>
-                    <asp:TextBox ID="txtFechaSolicitada" runat="server" class="form-control" type="date"  required="true"> </asp:TextBox>
+                    <asp:TextBox ID="txtFechaSalida" runat="server" class="form-control" type="date"  required="true"> </asp:TextBox>
                         <div class="alert alert-danger">Fecha de salida no válida</div>
                     
                 </div>
@@ -120,7 +120,7 @@
                     </div>
                     <div class="form-group">
                         <label>Descripci&oacute;n otros</label>
-                        <asp:TextBox ID="txtDescripcionOtro" runat="server" class="form-control" type="text" placeholder="Otros ..." required="true"> </asp:TextBox>
+                        <asp:TextBox ID="txtRecursoSolicitadoOtro" runat="server" class="form-control" type="text" placeholder="Otros ..." required="true"> </asp:TextBox>
                         
                     </div>
                     
@@ -186,7 +186,7 @@
                 </div>
                 <div class="form-group">
                     <label>Descripci&oacute;n otros</label>
-                    <asp:TextBox ID="TextBox1" runat="server" class="form-control" type="text" placeholder="Otros ..." required="true"> </asp:TextBox>
+                    <asp:TextBox ID="txtActividadOtros" runat="server" class="form-control" type="text" placeholder="Otros ..." required="true"> </asp:TextBox>
                 </div>
 
             </div>

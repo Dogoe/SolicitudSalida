@@ -85,13 +85,13 @@ namespace PracticaCapas.VistasUsuario {
         protected global::System.Web.UI.WebControls.DropDownList ddlCategoria;
         
         /// <summary>
-        /// txtFechaSolicitada control.
+        /// txtFechaSalida control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtFechaSolicitada;
+        protected global::System.Web.UI.WebControls.TextBox txtFechaSalida;
         
         /// <summary>
         /// txtHoraSalida control.
@@ -157,13 +157,13 @@ namespace PracticaCapas.VistasUsuario {
         protected global::System.Web.UI.WebControls.CheckBox cBoxOtro;
         
         /// <summary>
-        /// txtDescripcionOtro control.
+        /// txtRecursoSolicitadoOtro control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtDescripcionOtro;
+        protected global::System.Web.UI.WebControls.TextBox txtRecursoSolicitadoOtro;
         
         /// <summary>
         /// txtCantPersonas control.
@@ -238,13 +238,13 @@ namespace PracticaCapas.VistasUsuario {
         protected global::System.Web.UI.WebControls.CheckBox cBoxActividadOtro;
         
         /// <summary>
-        /// TextBox1 control.
+        /// txtActividadOtros control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox TextBox1;
+        protected global::System.Web.UI.WebControls.TextBox txtActividadOtros;
         
         /// <summary>
         /// btnEnviarSolicitud control.

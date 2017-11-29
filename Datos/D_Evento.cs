@@ -5,15 +5,15 @@ using System.Data.SqlClient;
 
 namespace Datos
 {
-    public class D_Actividad
+    public class D_Evento
     {
         private D_ConexionDB dbSS = new D_ConexionDB(NombreBasesDeDatos.DbSsConnectionString.ToString());//base de datos del sistema
-        public D_Actividad()
+        public D_Evento()
         {
 
         }
-        //---------------------------------------------------
-        public int Guardar_Actividad(EActividad tempActividad, string instruccion)
+        //-----------------------------------------
+        public int Guardar_Evento(EEvento tempEvento, string instruccion)
         {
             SqlCommand cmd = new SqlCommand();
             SqlDataReader dr;
@@ -24,24 +24,23 @@ namespace Datos
                 dbSS.AbrirConexion();
                 cmd.Connection = dbSS.Conexion;
                 cmd.CommandType = CommandType.StoredProcedure;
-                cmd.CommandText = "[dbo].[ABCActividad]";
+                cmd.CommandText = "[dbo].[ABCEvento]";
 
                 cmd.Parameters.AddWithValue("@Accion", instruccion);
                 if (instruccion == "INSERTAR")
-                { 
+                {
                     cmd.Parameters.AddWithValue("@Id", -1);
                 }
                 else
                 {
-                    cmd.Parameters.AddWithValue("@Id", tempActividad.Id);
+                    cmd.Parameters.AddWithValue("@Id", tempEvento.Id);
                 }
-                
-                cmd.Parameters.AddWithValue("@CACEI", tempActividad.CACEI);
-                cmd.Parameters.AddWithValue("@Licenciatura", tempActividad.Licenciatura);
-                cmd.Parameters.AddWithValue("@Personal", tempActividad.Personal);
-                cmd.Parameters.AddWithValue("@ISO", tempActividad.ISO);
-                cmd.Parameters.AddWithValue("@Posgrado", tempActividad.Posgrado);
-                cmd.Parameters.AddWithValue("@Otro", tempActividad.Otro);
+
+                cmd.Parameters.AddWithValue("@Nombre_Evento", tempEvento.Nombre_Evento);
+                cmd.Parameters.AddWithValue("@Costo", tempEvento.Costo);
+                cmd.Parameters.AddWithValue("@Lugar", tempEvento.Lugar);
+                cmd.Parameters.AddWithValue("@Fecha_Hora_Salida", tempEvento.Fecha_Hora_Salida);
+                cmd.Parameters.AddWithValue("@Fecha_Hora_Regreso", tempEvento.Fecha_Hora_Regreso);
 
                 dr = cmd.ExecuteReader();
                 int i = 0;
@@ -54,7 +53,7 @@ namespace Datos
             }
             catch (Exception e)
             {
-                throw new Exception("Error al solicitar los datos de Actividades ", e);
+                throw new Exception("Error al solicitar los datos de Eventos ", e);
             }
             finally
             {
@@ -64,7 +63,7 @@ namespace Datos
             }
         }
         //----------------------------------------------------
-        public bool EliminarActividadPorId(int idActividad)
+        public bool EliminarEventoPorId(int idEvento)
         {
             SqlCommand cmd = new SqlCommand();
             SqlDataReader dr;
@@ -74,17 +73,16 @@ namespace Datos
                 dbSS.AbrirConexion();
                 cmd.Connection = dbSS.Conexion;
                 cmd.CommandType = CommandType.StoredProcedure;
-                cmd.CommandText = "[dbo].[ABCActividad]";
+                cmd.CommandText = "[dbo].[ABCEvento]";
 
                 cmd.Parameters.AddWithValue("@Accion", "BORRAR");
-                cmd.Parameters.AddWithValue("@Id", idActividad);
+                cmd.Parameters.AddWithValue("@Id", idEvento);
                 //En este caso solo nos sirve el id, los parametros ue sigen solo se mandan para ue no suceda un error
-                cmd.Parameters.AddWithValue("@CACEI", false);
-                cmd.Parameters.AddWithValue("@Licenciatura", false);
-                cmd.Parameters.AddWithValue("@Personal", false);
-                cmd.Parameters.AddWithValue("@ISO", false);
-                cmd.Parameters.AddWithValue("@Posgrado", false);
-                cmd.Parameters.AddWithValue("@Otro", "Nada");
+                cmd.Parameters.AddWithValue("@Nombre_Evento", string.Empty);
+                cmd.Parameters.AddWithValue("@Costo", 0.0);
+                cmd.Parameters.AddWithValue("@Lugar", string.Empty);
+                cmd.Parameters.AddWithValue("@Fecha_Hora_Salida", "");
+                cmd.Parameters.AddWithValue("@Fecha_Hora_Regreso", "");
 
                 dr = cmd.ExecuteReader();
 
@@ -110,7 +108,7 @@ namespace Datos
             }
         }
         //--------------------------------------------------------------
-        public DataSet ConsultarActividades()
+        public DataSet ConsultarEventos()
         {
             SqlCommand cmd = new SqlCommand();
             DataSet ds = new DataSet();
@@ -121,16 +119,15 @@ namespace Datos
                 dbSS.AbrirConexion();
                 cmd.Connection = dbSS.Conexion;
                 cmd.CommandType = CommandType.StoredProcedure;
-                cmd.CommandText = "[dbo].[ABCActividad]";
+                cmd.CommandText = "[dbo].[ABCEvento]";
                 cmd.Parameters.AddWithValue("@Accion", "CONSULTAR");
                 //En este caso no necesita ningun parametro, pero se mandan para no tener algun error
                 cmd.Parameters.AddWithValue("@Id", -1);
-                cmd.Parameters.AddWithValue("@CACEI", false);
-                cmd.Parameters.AddWithValue("@Licenciatura", false);
-                cmd.Parameters.AddWithValue("@Personal", false);
-                cmd.Parameters.AddWithValue("@ISO", false);
-                cmd.Parameters.AddWithValue("@Posgrado", false);
-                cmd.Parameters.AddWithValue("@Otro", "Nada");
+                cmd.Parameters.AddWithValue("@Nombre_Evento", string.Empty);
+                cmd.Parameters.AddWithValue("@Costo", 0.0);
+                cmd.Parameters.AddWithValue("@Lugar", string.Empty);
+                cmd.Parameters.AddWithValue("@Fecha_Hora_Salida", "");
+                cmd.Parameters.AddWithValue("@Fecha_Hora_Regreso", "");
 
                 da.SelectCommand = cmd;
                 da.Fill(ds);

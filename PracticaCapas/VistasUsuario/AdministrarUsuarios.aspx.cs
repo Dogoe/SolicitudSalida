@@ -42,23 +42,28 @@ namespace PracticaCapas.VistasUsuario
         protected void Guardar_Usuario_click(object sender, EventArgs e)
         {
             
-            /*int Id = Convert.ToInt32(txtIdFormHide.Text);
-            string Correo = txtCorreoForm.Text;
-            //int Id_Rol = Convert.ToInt32(txtIdRolForm.Text);
-            //int Id_Rol_Prueba = Convert.ToInt32(ddlRolPermisoForm.SelectedIndex);
-            //int Id_Rol_Prueba = Convert.ToInt32(ddlRolPermisoForm.DataValueField.Length);
-            int Id_Rol = Convert.ToInt32(ddlRolPermisoForm.SelectedValue.ToString());
-            /*string Id = txtIdFormHide.Text;
-            string Id_Rol = txtIdRolForm.Text;
-            //----------------------------------------
-            EUsuario usuario = new EUsuario();
-            usuario.Id = Id;
-            usuario.Correo = Correo;
-            usuario.Id_Rol = Id_Rol;
-            nUsuario.ActualizarUsuario(usuario);
-            //------------------------------------
-            CargarTablaUsuarios();*/
-            //msj.Text = "SI funciona prro. mira keriko" +Id_Rol_Prueba + Correo + Id + Id_Rol;
+            //int Id = Convert.ToInt32(txtIdUsuario.Text);
+            /*string Nombre_Rol = txtNombreRol.Text;
+            string Descripcion = txtDescripcion.Text;
+            string Carrera = txtCarrera.Text;*/
+            string CorreoAnterior = txtCorreoAnterior.Text;
+            string NuevoCorreo = txtNuevoCorreo.Text;
+            //------------------
+            EUsuario usuario = nUsuario.ObtenerUsuarioPorCorreo(CorreoAnterior);
+            //-----------------
+            if (nUsuario.AutenticarUsuarioFiad(NuevoCorreo))
+            {
+                usuario.Correo = NuevoCorreo;
+                nUsuario.ActualizarUsuario(usuario);
+                CargarTablaUsuarios();
+            }
+            else
+            {
+                
+                lblNotificacionCorreoValido.Text = "El correo no pertenece a la FIAD";
+            }
+            
+       
         }
         //----------------------------------------------------
         protected void Eliminar_Usuario_click(object sender, EventArgs e)

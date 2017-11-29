@@ -32,7 +32,7 @@ namespace Datos
                 dbSS.AbrirConexion();
                 cmd.Connection = dbSS.Conexion;
                 cmd.CommandType = CommandType.StoredProcedure;
-                cmd.CommandText = "[dbo].[abcUsuario]";
+                cmd.CommandText = "[dbo].[ABCUsuario]";
 
                 cmd.Parameters.AddWithValue("@Accion","CONSULTAR");
                 cmd.Parameters.AddWithValue("@Id",-1);
@@ -210,7 +210,7 @@ namespace Datos
                 dbSS.AbrirConexion();
                 cmd.Connection = dbSS.Conexion;
                 cmd.CommandType = CommandType.StoredProcedure;
-                cmd.CommandText = "[dbo].[abcUsuario]";
+                cmd.CommandText = "[dbo].[ABCUsuario]";
 
                 cmd.Parameters.AddWithValue("@Accion", "INSERTAR");
                 cmd.Parameters.AddWithValue("@Id",-1);
@@ -252,7 +252,7 @@ namespace Datos
                 dbSS.AbrirConexion();
                 cmd.Connection = dbSS.Conexion;
                 cmd.CommandType = CommandType.StoredProcedure;
-                cmd.CommandText = "[dbo].[abcUsuario]";
+                cmd.CommandText = "[dbo].[ABCUsuario]";
 
                 cmd.Parameters.AddWithValue("@Accion", "MODIFICAR");
                 cmd.Parameters.AddWithValue("@Id", Usuario.Id);
@@ -294,7 +294,7 @@ namespace Datos
                 dbSS.AbrirConexion();
                 cmd.Connection = dbSS.Conexion;
                 cmd.CommandType = CommandType.StoredProcedure;
-                cmd.CommandText = "[dbo].[abcUsuario]";
+                cmd.CommandText = "[dbo].[ABCUsuario]";
 
                 cmd.Parameters.AddWithValue("@Accion", "BORRAR");
                 cmd.Parameters.AddWithValue("@Id", Id);
@@ -384,7 +384,7 @@ namespace Datos
             return ds;
         }
         //Funcion que retorna la lista completa de los datos de la tabla
-        public DataSet ListaRoles()
+        /*public DataSet ListaRoles()
         {
             SqlCommand cmd = new SqlCommand();
             DataSet ds = new DataSet();
@@ -411,38 +411,9 @@ namespace Datos
                 
             }
             return ds;
-        }
+        }*/
         //-------------------------------------
-        public DataSet ListaCarrera()
-        {
-            SqlCommand cmd = new SqlCommand();
-            DataSet ds = new DataSet();
-            SqlDataAdapter da = new SqlDataAdapter();
-
-            try
-            {
-                dbSS.AbrirConexion();
-                cmd.Connection = dbSS.Conexion;
-                cmd.CommandType = CommandType.StoredProcedure;
-                cmd.CommandText = "[dbo].[ListaCarrera]";
-
-                da.SelectCommand = cmd;
-                da.Fill(ds);
-            }
-            catch (Exception e)
-            {
-                throw new Exception("Error al solicitar los datos la tabla", e);
-            }
-            finally
-            {
-                dbSS.CerrarConexion();
-                cmd.Dispose();
-                
-            }
-            return ds;
-        }
-        //-------------------------------------
-        public ECarrera ObtenerCarreraCoordinador(int idCoordinadorUsuario)
+        /*public ECarrera ObtenerCarreraCoordinador(int idCoordinadorUsuario)
         {
             SqlCommand cmd = new SqlCommand();
             SqlDataReader dr;
@@ -482,6 +453,6 @@ namespace Datos
             }
             return null;
             //-------------------
-        }
+        }*/
     }
 }

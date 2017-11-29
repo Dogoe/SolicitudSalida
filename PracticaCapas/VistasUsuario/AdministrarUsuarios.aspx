@@ -9,6 +9,7 @@
         <asp:GridView ID="gvUsuario" CssClass="table table-responsive table-bordered table-striped" 
             runat="server" OnPageIndexChanging="gvUsuario_PageIndexChanging" AllowPaging="True" PageSize="6" AutoGenerateColumns="false">
             <Columns>
+                
                 <asp:TemplateField HeaderText="Nombre Rol"  ItemStyle-CssClass="Nombre_Rol control-label">
                     <ItemTemplate>
                         <small><asp:Label Text='<%# Eval("Nombre_Rol") %>' runat="server" CssClass="control-label"/></small>
@@ -20,7 +21,7 @@
                         <asp:TextBox Text='<%# Eval("Descripcion") %>' runat="server" Style="display: none" />
                     </ItemTemplate>
                 </asp:TemplateField>
-                <asp:TemplateField HeaderText="Carrera" ItemStyle-Width="" ItemStyle-CssClass="Descripcion control-label">
+                <asp:TemplateField HeaderText="Carrera" ItemStyle-Width="" ItemStyle-CssClass="Carrera control-label">
                     <ItemTemplate>
                         <small><asp:Label Text='<%# Eval("Nombre_carrera") %>' runat="server" /></small>
                         <asp:TextBox Text='<%# Eval("Nombre_carrera") %>' runat="server" Style="display: none" />
@@ -45,7 +46,7 @@
          <!-- Trigger the modal with a button -->
 
          <!-- Modal -->
-         <div id="UsuariosAgregarEditarModal" class="modal fade" role="dialog">
+        <div id="UsuariosAgregarEditarModal" class="modal fade" data-backdrop="static" data-keyboard="false" role="dialog">
             <div class="modal-dialog">
                 <!-- Modal content-->
                 <div class="modal-content">
@@ -55,30 +56,38 @@
                     </div>
                     <div class="modal-body">
                         <div class="form-group">
-                          <label for="txtIdForm"><span class="glyphicon glyphicon-user"></span> ID Usuario:</label>
-                          <asp:TextBox ID="txtIdFormHide" class="form-control" text="" runat="server" placeholder="Id Usuario" Style="display: none"/>
-                          <asp:TextBox ID="txtIdForm" class="form-control" text="" runat="server" placeholder="Id Usuario" disabled="true"/>
-                
+                            <asp:TextBox ID="txtIdUsuario" class="form-control" Text="" runat="server" Style="display: none" />
+                            <label for="txtNombreRol"><span class="glyphicon glyphicon-user"></span>Nombre Rol:</label>
+                            <asp:TextBox ID="txtNombreRolHide" class="form-control" Text="" runat="server" Style="display: none" />
+                            <asp:TextBox ID="txtNombreRol" class="form-control" Text="" runat="server" placeholder="Id Usuario" disabled="true" />
+
                         </div>
                         <div class="form-group">
-                          <label for="txtCorreoForm">Correo:</label>
-                          <asp:TextBox ID="txtCorreoForm" class="form-control" text="" runat="server" placeholder="Correo"/>
+                            <label for="txtDescripcion">Descripcion:</label>
+                            <asp:TextBox ID="txtDescripcionHide" class="form-control" Text="" runat="server" placeholder="Descripcion" Style="display: none" />
+                            <asp:TextBox ID="txtDescripcion" class="form-control" Text="" runat="server" placeholder="Correo" disabled="true" />
                         </div>
-                       
                         <div class="form-group">
-                          <label for="txtIdRolForm">Rol-Permiso:</label>
-                          <asp:DropDownList ID="ddlRolPermisoForm" runat="server" CssClass="form-control" disabled="true"> 
-                          </asp:DropDownList>
+                            <label for="txtCarrera">Carrera:</label>
+                            <asp:TextBox ID="txtCarreraHide" class="form-control" Text="" runat="server" Style="display: none" />
+                            <asp:TextBox ID="txtCarrera" class="form-control" Text="" runat="server" placeholder="Carrera" disabled="true" />
                         </div>
+                        <div class="form-group">
+                            <label for="txtNuevoCorreo">Correo:</label>
+                            <asp:TextBox ID="txtCorreoAnterior" Text="" runat="server" Style="display: none" />
+                            <asp:TextBox ID="txtNuevoCorreo" class="form-control" Text="" runat="server" placeholder="Correo" />
+                            <asp:Label ID="lblNotificacionCorreoValido" Text="" runat="server" CssClass="control-label" />
+                        </div>
+
                     </div>
                     <div class="modal-footer">
-                        <asp:Button ID="BtnUpdate" onclick="Guardar_Usuario_click" Text="Guardar Cambios" runat="server" CssClass="Actualizar btn btn-success"/>
-                        <asp:Button ID="BtnCancelar" Text="Cancelar" runat="server" CssClass="Actualizar btn btn-danger"/>
+                        <asp:Button ID="BtnUpdate" OnClick="Guardar_Usuario_click" Text="Guardar Cambios" runat="server" CssClass="btn btn-success" />
+                        <asp:Button ID="BtnCancelar" Text="Cancelar" runat="server" CssClass="Actualizar btn btn-danger" />
                     </div>
                 </div>
 
-             </div>
-         </div>
+            </div>
+        </div>
         <!-- Modal Eliminar-->
         <div id="UsuariosEliminarModal" class="modal fade" role="dialog">
             <div class="modal-dialog">
@@ -101,6 +110,7 @@
              </div>
          </div>
         
+        <script src="../Resources/Jquery-3.2.1/js/jquery-3.2.1.min.js"></script>
         <script src="../VistasUsuario/js/AdmiUsuarios.js"></script>
     
     </div>

@@ -1,8 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Entidades
 {
@@ -12,13 +8,13 @@ namespace Entidades
         string _Folio;
         string _Nombre_Solicitante;
         int _Numero_Empleado;
-        ECategoria _Id_Categoria;
-        ECarrera _Id_Carrera;
-        EEvento _Id_Evento;
-        ERecurso_Solicitado _Id_Recurso_Solicitado;
-        EActividad _Id_Actividad;
-        EValidacion _Id_Validacion;
-        EEstado _Id_Estado;
+        int _Id_Categoria;
+        int _Id_Carrera;
+        int _Id_Evento;
+        int _Id_Recurso_Solicitado;
+        int _Id_Actividad;
+        int _Id_Validacion;
+        int _Id_Estado;
         DateTime _Fecha_Creacion;
         DateTime _Fecha_Modificacion;
         string _URL_Reporte;
@@ -31,7 +27,7 @@ namespace Entidades
     
         }
 
-        public ESolicitud(int Id, string Folio, string Nombre_Solicitante, int Numero_Empleado, ECategoria Id_Categoria, ECarrera Id_Carrera, EEvento Id_Evento, ERecurso_Solicitado Id_Recurso_Solicitado, EActividad Id_Actividad, EValidacion Id_Validacion, EEstado Id_Estado, DateTime Fecha_Creacion, DateTime Fecha_Modificacion, string URL_Reporte, string Correo_Solicitante, string Comentario_Rechazado, bool Leido)
+        public ESolicitud(int Id, string Folio, string Nombre_Solicitante, int Numero_Empleado, int Id_Categoria, int Id_Carrera, int Id_Evento, int Id_Recurso_Solicitado, int Id_Actividad, int Id_Validacion, int Id_Estado, DateTime Fecha_Creacion, DateTime Fecha_Modificacion, string URL_Reporte, string Correo_Solicitante, string Comentario_Rechazado, bool Leido)
         {
             _Id = Id;
             _Folio = Folio;
@@ -56,18 +52,18 @@ namespace Entidades
         public string Folio { get => _Folio; set => _Folio = value; }
         public string Nombre_Solicitante { get => _Nombre_Solicitante; set => _Nombre_Solicitante = value; }
         public int Numero_Empleado { get => _Numero_Empleado; set => _Numero_Empleado = value; }
-        public ECarrera Id_Carrera { get => _Id_Carrera; set => _Id_Carrera = value; }
+        public int Id_Categoria { get => _Id_Categoria; set => _Id_Categoria = value; }
+        public int Id_Carrera { get => _Id_Carrera; set => _Id_Carrera = value; }
+        public int Id_Evento { get => _Id_Evento; set => _Id_Evento = value; }
+        public int Id_Recurso_Solicitado { get => _Id_Recurso_Solicitado; set => _Id_Recurso_Solicitado = value; }
+        public int Id_Actividad { get => _Id_Actividad; set => _Id_Actividad = value; }
+        public int Id_Validacion { get => _Id_Validacion; set => _Id_Validacion = value; }
+        public int Id_Estado { get => _Id_Estado; set => _Id_Estado = value; }
         public DateTime Fecha_Creacion { get => _Fecha_Creacion; set => _Fecha_Creacion = value; }
         public DateTime Fecha_Modificacion { get => _Fecha_Modificacion; set => _Fecha_Modificacion = value; }
         public string URL_Reporte { get => _URL_Reporte; set => _URL_Reporte = value; }
         public string Correo_Solicitante { get => _Correo_Solicitante; set => _Correo_Solicitante = value; }
         public string Comentario_Rechazado { get => _Comentario_Rechazado; set => _Comentario_Rechazado = value; }
         public bool Leido { get => _Leido; set => _Leido = value; }
-        internal ECategoria Id_Categoria { get => _Id_Categoria; set => _Id_Categoria = value; }
-        internal EEvento Id_Evento { get => _Id_Evento; set => _Id_Evento = value; }
-        internal ERecurso_Solicitado Id_Recurso_Solicitado { get => _Id_Recurso_Solicitado; set => _Id_Recurso_Solicitado = value; }
-        internal EActividad Id_Actividad { get => _Id_Actividad; set => _Id_Actividad = value; }
-        internal EValidacion Id_Validacion { get => _Id_Validacion; set => _Id_Validacion = value; }
-        internal EEstado Id_Estado { get => _Id_Estado; set => _Id_Estado = value; }
     }
 }

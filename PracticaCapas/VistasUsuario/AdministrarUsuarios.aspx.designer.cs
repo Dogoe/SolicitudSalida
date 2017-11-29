@@ -40,40 +40,94 @@ namespace PracticaCapas.VistasUsuario {
         protected global::System.Web.UI.WebControls.GridView gvUsuario;
         
         /// <summary>
-        /// txtIdFormHide control.
+        /// txtIdUsuario control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtIdFormHide;
+        protected global::System.Web.UI.WebControls.TextBox txtIdUsuario;
         
         /// <summary>
-        /// txtIdForm control.
+        /// txtNombreRolHide control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtIdForm;
+        protected global::System.Web.UI.WebControls.TextBox txtNombreRolHide;
         
         /// <summary>
-        /// txtCorreoForm control.
+        /// txtNombreRol control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtCorreoForm;
+        protected global::System.Web.UI.WebControls.TextBox txtNombreRol;
         
         /// <summary>
-        /// ddlRolPermisoForm control.
+        /// txtDescripcionHide control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList ddlRolPermisoForm;
+        protected global::System.Web.UI.WebControls.TextBox txtDescripcionHide;
+        
+        /// <summary>
+        /// txtDescripcion control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtDescripcion;
+        
+        /// <summary>
+        /// txtCarreraHide control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtCarreraHide;
+        
+        /// <summary>
+        /// txtCarrera control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtCarrera;
+        
+        /// <summary>
+        /// txtCorreoAnterior control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtCorreoAnterior;
+        
+        /// <summary>
+        /// txtNuevoCorreo control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtNuevoCorreo;
+        
+        /// <summary>
+        /// lblNotificacionCorreoValido control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblNotificacionCorreoValido;
         
         /// <summary>
         /// BtnUpdate control.

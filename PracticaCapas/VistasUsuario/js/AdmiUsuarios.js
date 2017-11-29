@@ -1,22 +1,30 @@
 ﻿//Edit event handler.
 $("body").on("click", "[id*=gvUsuario] .Editar", function () {
-   /* var row = $(this).closest("tr");
+    var row = $(this).closest("tr");
     //-----------------------------------
-    var Id = row.find(".Id").find("span").html();
+    //var Id = row.find(".Id").find("span").html();
+    var Nombre_Rol = row.find(".Nombre_Rol").find("span").html();
+    var Descripcion = row.find(".Descripcion").find("span").html();
+    var Carrera = row.find(".Carrera").find("span").html();
     var Correo = row.find(".Correo").find("span").html();
-    var Id_Rol = row.find(".Id_Rol").find("span").html();
-    //var Id_Prueba = row.find(".Id_Prueba").find("span").html();
-    //var Id_Prueba = row.find(".Id_Prueba").find("#ContentPlaceHolder_gvUsuario_ddlPermisosRol_0").
-    
-    //------------
-    $('#ContentPlaceHolder_txtIdForm').val(Id);
-    $('#ContentPlaceHolder_txtIdFormHide').val(Id);
-    $('#ContentPlaceHolder_txtCorreoForm').val(Correo);
-    $('#ContentPlaceHolder_txtIdRolForm').val(Id_Rol);
-    //$('#ContentPlaceHolder_ddlRolPermisoForm').val(Id_Rol);
-    $('#ContentPlaceHolder_ddlRolPermisoForm').val(Id_Rol);
+    //console.log(Nombre_Rol + Descripcion + Carrera + Correo);
+    //--------------------------------------------------------
+    //$('#ContentPlaceHolder_txtIdUsuario').val(Id);
+    //$('#ContentPlaceHolder_txtIdUsuarioHide').val(Id);
+
+    $('#ContentPlaceHolder_txtNombreRol').val(Nombre_Rol);
+    $('#ContentPlaceHolder_txtNombreRolHide').val(Nombre_Rol);
+
+    $('#ContentPlaceHolder_txtDescripcion').val(Descripcion);
+    $('#ContentPlaceHolder_txtDescripcionHide').val(Descripcion);
+
+    $('#ContentPlaceHolder_txtCarrera').val(Carrera);
+    $('#ContentPlaceHolder_txtCarreraHidde').val(Carrera);
+
+    $('#ContentPlaceHolder_txtCorreoAnterior').val(Correo);
+    $('#ContentPlaceHolder_txtNuevoCorreo').val(Correo);
     //-------------------
-    $('#UsuariosAgregarEditarModal').modal('show');*/
+    $('#UsuariosAgregarEditarModal').modal('show');
    
     return false;
 });

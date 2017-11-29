@@ -59,20 +59,20 @@ namespace Negocios
         {
             return objNegocioUsuarios.ListaUsuariosUABC();
         }
-        public DataSet ListaRoles()
+        /*public DataSet ListaRoles()
         {
             return objNegocioUsuarios.ListaRoles();
-        }
+        }*/
         //----------------------
-        public DataSet ListaCarrera()
+        /*public DataSet ListaCarrera()
         {
             return objNegocioUsuarios.ListaCarrera();
-        }
+        }*/
         //--------------------------
-        public ECarrera ObtenerCarreraCoordinador(int idCoordinadorUsuario)
+        /*public ECarrera ObtenerCarreraCoordinador(int idCoordinadorUsuario)
         {
             return objNegocioUsuarios.ObtenerCarreraCoordinador(idCoordinadorUsuario);
-        }
+        }*/
     }
     //------------------------------------
     
