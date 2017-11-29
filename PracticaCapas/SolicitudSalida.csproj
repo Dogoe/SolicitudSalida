@@ -66,10 +66,12 @@
     <Reference Include="System.EnterpriseServices" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="FIAD.sql" />
     <Content Include="packages.config" />
-    <Content Include="SS.sql" />
-    <Content Include="UABC.sql" />
+    <Content Include="Scrips\dbSSFull.sql" />
+    <Content Include="Scrips\FIAD.sql" />
+    <Content Include="Scrips\FIAD2.sql" />
+    <Content Include="Scrips\UABC.sql" />
+    <Content Include="Scrips\UABC2.sql" />
     <Content Include="VistasUsuario\AdministrarUsuarios.aspx" />
     <Content Include="VistasUsuario\GenerarSolicitud.aspx" />
     <Content Include="VistasUsuario\HistorialSolicitudes.aspx" />
