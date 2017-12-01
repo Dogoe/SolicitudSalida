@@ -23,6 +23,7 @@ namespace PracticaCapas
             bool userFiad;
             EUsuario usuario;
             EUsuario_Uabc user = nUsuario.AutenticarUsuarioUabc(EmailLogin.Text,PassUser.Text);
+            ERol_Usuario rolUser = new ERol_Usuario();
             if (user.Email == string.Empty)
             {
                 msj.Text = "El Correo no se encuentra registrado, o la contraseña es incorrecta, favor de revisar que los datos este correctamente escritos";
@@ -34,39 +35,24 @@ namespace PracticaCapas
                 userFiad = nUsuario.AutenticarUsuarioFiad(EmailLogin.Text);
                 if (userFiad)
                 {
-                    usuario = nUsuario.ObtenerUsuarioPorCorreo(EmailLogin.Text);
-                    //Si ya existe el usuario en la base de datos del sistema, entonces se recuperan sus datos directamente
-                    if (usuario != null)
+                    usuario = nUsuario.ObtenerUsuarioPorCorreo(EmailLogin.Text);//Se verifica si el usuario es usuario academico o administrador
+                    if (usuario != null)//si no es null, entonces es usuario academico o administrador
                     {
-                        //Datos que se van a ocupar en la sesion
-                        Session["Id_Rol"] = usuario.Id_Rol;// se saca el rol del usuario de la base de datos del sistema
-                        Session["Usuario"] = user; //Todos los datos del usuario de la base de datos de usuarios Uabc
-                        Server.Transfer("~/VistasUsuario/Inicio.aspx", true);
+                        rolUser = nUsuario.OptenerRolUsuarioPorId(usuario.Id); //Se sacan los datos de la base de datos del sistema
 
                     }
                     //Si no existe en la base de datos del sistema, entonces se procede a crear dicho usuario con privilegios default(rol docente)
                     else
                     {
-                        //El index 6 es el rol de docente, el cual se le asigna a cualquier usuario que ingrese(Los admins pueden modificar estos roles)
-                        // nUsuario.CrearUsuario();
-                        EUsuario nuevoUsuario = new EUsuario();
-                        nuevoUsuario.Correo = user.Email;
-                        nuevoUsuario.Id_Rol = 6;
-                        if (nUsuario.CrearUsuario(nuevoUsuario))
-                        {
-                            Session["Id_Rol"] = usuario.Id_Rol;// se saca el rol del usuario de la base de datos del sistema
-                            Session["Usuario"] = user; //Todos los datos del usuario de la base de datos de usuarios Uabc
-                            Server.Transfer("~/VistasUsuario/Inicio.aspx", true);
-                        }
-                        else
-                        {
-                            msj.Text = "No se pudo creear el usuario";
-                            divMsjErrorLogin.Attributes.Remove("hidden");
-                        }
+                        rolUser.NombreRol = "Docente";
+                        rolUser.DescripcionRol = "Docente";
+                        rolUser.IdRol = -1;
                         
-                       
                     }
-
+                    //Se guardan todos los datos necesarios del usuario, los cuales se van a necesitar durante la sesion
+                    Session["Usuario"] = user; //Todos los datos del usuario de la base de datos de usuarios Uabc
+                    Session["Rol_Usuario"] = rolUser;// se saca el rol del usuario de la base de datos del sistema
+                    Server.Transfer("~/VistasUsuario/Inicio.aspx", true);//Se redirije a la pagina de inicio del sistema
                 }
                 else
                 {

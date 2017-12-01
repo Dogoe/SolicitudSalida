@@ -12,10 +12,22 @@ namespace PracticaCapas.VistasUsuario
 {
     public partial class GenerarSolicitud : System.Web.UI.Page
     {
+        EUsuario_Uabc usuario;
+        ERol_Usuario rolUser;
         protected void Page_Load(object sender, EventArgs e)
         {
-            if (!IsPostBack)
+            
+            N_Usuario nUsuario = new N_Usuario();
+            //-----------------------------------
+            usuario = (EUsuario_Uabc)Session["Usuario"];
+            rolUser = (ERol_Usuario)Session["Rol_Usuario"];
+            //----------------------------------
+            if (!IsPostBack && usuario !=null)
             {
+
+                //txtNombre.Text = 
+                txtNombre.Text = usuario.Nombre;
+                txtNoEmpleado.Text = Convert.ToString(usuario.NoEmpleado);
                 N_Categoria nCategoria = new N_Categoria();
                 DataSet datosListaCategoria = nCategoria.ListaCategoria();
                 //-------------------
@@ -38,11 +50,10 @@ namespace PracticaCapas.VistasUsuario
             }
         }
         //----------------------------------------------
-        protected void Enviar_Solicitud_Click()
+        protected void Enviar_Solicitud_Click(object sender, EventArgs e)
         {
-            /*string folio = "D";
-            string nombre_solicitante = txtNombre.Text;
-            int numero_empleado  = Convert.ToInt32(txtNoEmpleado.Text.ToString());
+            string folio = "D";
+            
             int id_categoria = Convert.ToInt32(ddlCategoria.SelectedValue);
             int id_carrera = Convert.ToInt32(ddlCarrera.SelectedValue);
             //-------------llenar evento---------------
@@ -50,8 +61,12 @@ namespace PracticaCapas.VistasUsuario
             evento.Nombre_Evento = txtNombreEvento.Text;
             evento.Costo = (float)Convert.ToDecimal(txtCostoEvento.Text); 
             evento.Lugar = txtLugarEvento.Text;
-            evento.Fecha_Hora_Regreso = Convert.ToDateTime(txtFechaLLegada.Text + txtHoraLlegada.Text);
-            evento.Fecha_Hora_Salida = Convert.ToDateTime(txtFechaSalida.Text + txtHoraSalida.Text);
+
+            string tempFechaRegreso = txtFechaLLegada.Text + " " +  txtHoraLlegada.Text;
+            evento.Fecha_Hora_Regreso = Convert.ToDateTime(tempFechaRegreso);
+            //----
+            string tempFechaSalida = txtFechaSalida.Text + " "+ txtHoraSalida.Text;
+            evento.Fecha_Hora_Salida = Convert.ToDateTime(tempFechaSalida);
             //-----------llenar Recurso solicitado---------------
             ERecurso_Solicitado recurso = new ERecurso_Solicitado();
             recurso.Hospedaje = cBoxHospedaje.Checked;
@@ -79,18 +94,22 @@ namespace PracticaCapas.VistasUsuario
             //----------------------------
             int id_estado = 1;
             //------------------------------------------------
-            DateTime fecha_creacion = DateTime.Today;
-            DateTime fecha_modificacion = DateTime.Today;
+            DateTime fecha_creacion = DateTime.Now;  //falta la hora exacta
+            DateTime fecha_modificacion = DateTime.Now;//falta la hora exacta
             string URL_reporte = "";
             EUsuario_Uabc usuario = (EUsuario_Uabc)Session["Usuario"];
+            string nombre_solicitante = usuario.Nombre;
+            nombre_solicitante.Trim();
+            int numero_empleado = usuario.NoEmpleado;
             string correo_solicitante = usuario.Email;
+            correo_solicitante.Trim();
             string comentario_rechazado = "";
             bool leido = false;
             //------------------------------------------------
             N_Solicitud nuevaSolicitud = new N_Solicitud();
             nuevaSolicitud.Crear_Solicitud(-1,folio,nombre_solicitante,numero_empleado,id_categoria,id_carrera,
                 evento,recurso,actividad,validacion,id_estado, fecha_creacion,fecha_modificacion,URL_reporte,
-                correo_solicitante,comentario_rechazado,leido);*/
+                correo_solicitante,comentario_rechazado,leido);
         }
     }
 }

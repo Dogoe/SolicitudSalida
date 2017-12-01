@@ -15,14 +15,19 @@ namespace PracticaCapas.VistasUsuario
 {
     public partial class AdministrarUsuarios : System.Web.UI.Page
     {
+        EUsuario_Uabc usuario;
+        ERol_Usuario rolUser;
         protected static N_Usuario nUsuario;
         protected static DataSet datosListaUsuario;
         protected static DataSet datosLista;
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            if(!IsPostBack)
+            usuario = (EUsuario_Uabc)Session["Usuario"];
+            rolUser = (ERol_Usuario)Session["Rol_Usuario"];
+            if (!IsPostBack && usuario != null)
             {
+
                 nUsuario = new N_Usuario();
                 //datosListaUsuario = nUsuario.ListaRoles()
                /* nUsuario = new N_Usuario();
@@ -33,6 +38,7 @@ namespace PracticaCapas.VistasUsuario
                     ddlRolPermisoForm.Items.Add(oItem);
                 }
                 ddlRolPermisoForm.DataBind();*/
+                //if()
                 CargarTablaUsuarios();
                
 
@@ -41,11 +47,6 @@ namespace PracticaCapas.VistasUsuario
         //-------------------------------------------------
         protected void Guardar_Usuario_click(object sender, EventArgs e)
         {
-            
-            //int Id = Convert.ToInt32(txtIdUsuario.Text);
-            /*string Nombre_Rol = txtNombreRol.Text;
-            string Descripcion = txtDescripcion.Text;
-            string Carrera = txtCarrera.Text;*/
             string CorreoAnterior = txtCorreoAnterior.Text;
             string NuevoCorreo = txtNuevoCorreo.Text;
             //------------------
@@ -56,11 +57,19 @@ namespace PracticaCapas.VistasUsuario
                 usuario.Correo = NuevoCorreo;
                 nUsuario.ActualizarUsuario(usuario);
                 CargarTablaUsuarios();
+                //return true;
             }
             else
             {
                 
+                /*$.notify({
+                 message: 'Notificacion'
+                    }, {
+                 type: 'danger'
+                  });*/
+                //ScriptManager.RegisterStartupScript(Page, Page.GetType(), "SomestartupScript", " notificacion('Si funciono', 'danger');", true);
                 lblNotificacionCorreoValido.Text = "El correo no pertenece a la FIAD";
+                //return false;
             }
             
        

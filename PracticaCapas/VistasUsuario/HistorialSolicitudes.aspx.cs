@@ -11,12 +11,18 @@ namespace PracticaCapas.VistasUsuario
 {
     public partial class HistorialSolicitudes : System.Web.UI.Page
     {
+        EUsuario_Uabc usuario;
+        ERol_Usuario rolUser;
         protected void Page_Load(object sender, EventArgs e)
         {
-            /*D_Actividad DataActividad = new D_Actividad();
-            EActividad act = new EActividad(-1,true,true,true,true,true,"PENE");
-            int i = DataActividad.Crear_Actividad(act);
-            lblTexto.Text = "i";*/
+            usuario = (EUsuario_Uabc)Session["Usuario"];
+            rolUser = (ERol_Usuario)Session["Rol_Usuario"];
+            if (!IsPostBack && usuario != null)
+            {
+
+             
+
+            }
         }
     }
 }

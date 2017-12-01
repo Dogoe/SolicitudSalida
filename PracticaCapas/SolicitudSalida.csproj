@@ -67,6 +67,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />
+    <Content Include="Resources\Bootstrap-Notify\js\bootstrap-notify.min.js" />
     <Content Include="Scrips\dbSSFull.sql" />
     <Content Include="Scrips\FIAD.sql" />
     <Content Include="Scrips\FIAD2.sql" />
@@ -77,8 +78,9 @@
     <Content Include="VistasUsuario\HistorialSolicitudes.aspx" />
     <Content Include="VistasUsuario\Inicio.aspx" />
     <Content Include="VistasUsuario\js\AdministrarUsuarios.js" />
+    <Content Include="VistasUsuario\js\Solicitudes.js" />
     <Content Include="VistasUsuario\js\AdmiUsuarios.js" />
-    <Content Include="VistasUsuario\SolicitudesRealizadas.aspx" />
+    <Content Include="VistasUsuario\Solicitudes.aspx" />
     <Content Include="VistasUsuario\Usuarios.Master" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
@@ -135,12 +137,12 @@
     <Compile Include="VistasUsuario\Inicio.aspx.designer.cs">
       <DependentUpon>Inicio.aspx</DependentUpon>
     </Compile>
-    <Compile Include="VistasUsuario\SolicitudesRealizadas.aspx.cs">
-      <DependentUpon>SolicitudesRealizadas.aspx</DependentUpon>
+    <Compile Include="VistasUsuario\Solicitudes.aspx.cs">
+      <DependentUpon>Solicitudes.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="VistasUsuario\SolicitudesRealizadas.aspx.designer.cs">
-      <DependentUpon>SolicitudesRealizadas.aspx</DependentUpon>
+    <Compile Include="VistasUsuario\Solicitudes.aspx.designer.cs">
+      <DependentUpon>Solicitudes.aspx</DependentUpon>
     </Compile>
     <Compile Include="VistasUsuario\Usuarios.Master.cs">
       <DependentUpon>Usuarios.Master</DependentUpon>

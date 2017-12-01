@@ -80,7 +80,7 @@
             <div class="row">
                 <div class="text-center col-xs-12">
                     <p>Universidad Autónoma de Baja California</p>
-                    <p>Diseñado por ©Dogo.</p>
+                    <p>Diseñado por ©JD.</p>
                 </div>
             </div>
         </div>

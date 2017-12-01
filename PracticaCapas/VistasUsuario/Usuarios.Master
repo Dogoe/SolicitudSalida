@@ -46,7 +46,7 @@
                     <ul>
                         <li id="linkInicio" runat="server"><span class="glyphicon glyphicon-comment btn btn-link" aria-hidden="true"></span><a href="../VistasUsuario/Inicio.aspx">Inicio </a></li>
                         <li id="linkVerNotificaciones" runat="server"><span class="glyphicon glyphicon-comment btn btn-link" aria-hidden="true"></span><a href="../VistasUsuario/Inicio.aspx">Ver notificaciones</a></li>
-                        <li id="linkSolicitudesR" runat="server"><span class="glyphicon glyphicon-folder-open btn btn-link" aria-hidden="true"></span><a href="../VistasUsuario/SolicitudesRealizadas.aspx">Solicitudes realizadas</a></li>
+                        <li id="linkSolicitudes" runat="server"><span class="glyphicon glyphicon-folder-open btn btn-link" aria-hidden="true"></span><a href="../VistasUsuario/Solicitudes.aspx">Solicitudes</a></li>
                         <li id="linkGenerarSol" runat="server"><span class="glyphicon glyphicon-file btn btn-link" aria-hidden="true"></span><a href="../VistasUsuario/GenerarSolicitud.aspx">Generar nueva solicitud</a></li>
                         <li id="linkHistorialSol" runat="server"><span class="glyphicon glyphicon-book btn btn-link" aria-hidden="true"></span><a href="../VistasUsuario/HistorialSolicitudes.aspx">Historial de solicitudes</a></li>
                         <li id="linkAdministrarUsuarios" runat="server"><span class="glyphicon glyphicon-cog btn btn-link" aria-hidden="true"></span><a href="../VistasUsuario/AdministrarUsuarios.aspx">Administrar Usuarios</a></li>
@@ -78,6 +78,10 @@
 
 
 <script src="../Resources/Jquery-3.2.1/js/jquery-3.2.1.min.js"></script>    
-<script src="../Resources/bootstrap-3.3.7-dist/js/bootstrap.min.js"></script>
+<script src="../Resources/bootstrap-3.3.7-dist/js/bootstrap.min.js"></script> 
+<script src="../Resources/Bootstrap-Notify/js/bootstrap-notify.min.js"></script>
+<script src="../VistasUsuario/js/Solicitudes.js"></script>
+<script src="../VistasUsuario/js/AdmiUsuarios.js"></script>
+
 </body>
 </html>

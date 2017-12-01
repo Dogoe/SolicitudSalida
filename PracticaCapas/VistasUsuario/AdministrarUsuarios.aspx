@@ -81,8 +81,8 @@
 
                     </div>
                     <div class="modal-footer">
-                        <asp:Button ID="BtnUpdate" OnClick="Guardar_Usuario_click" Text="Guardar Cambios" runat="server" CssClass="btn btn-success" />
-                        <asp:Button ID="BtnCancelar" Text="Cancelar" runat="server" CssClass="Actualizar btn btn-danger" />
+                        <asp:Button ID="BtnUpdate" type="button"  CssClass="btn btn-success" text="Guardar Cambios"  OnClick="Guardar_Usuario_click" runat="server"/>
+                        <asp:Button ID="BtnCancelar" Text="Cancelar" runat="server" CssClass="btn btn-default" data-dismiss="modal"/>
                     </div>
                 </div>
 
@@ -110,8 +110,8 @@
              </div>
          </div>
         
-        <script src="../Resources/Jquery-3.2.1/js/jquery-3.2.1.min.js"></script>
-        <script src="../VistasUsuario/js/AdmiUsuarios.js"></script>
+     
+        
     
     </div>
     </form>

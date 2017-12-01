@@ -1,5 +1,5 @@
-﻿//Edit event handler.
-$("body").on("click", "[id*=gvUsuario] .Editar", function () {
+﻿$("body").on("click", "[id*=gvUsuario] .Editar", function () {
+    //Edit event handler.
     var row = $(this).closest("tr");
     //-----------------------------------
     //var Id = row.find(".Id").find("span").html();
@@ -28,6 +28,15 @@ $("body").on("click", "[id*=gvUsuario] .Editar", function () {
    
     return false;
 });
+function notificacion(mensaje, color){
+    $.notify({
+        // options
+        message: mensaje
+    }, {
+            // settings
+            type: color
+        });
+}
 //Eliminar event
 /*$("body").on("click", "[id*=gvUsuario] .Eliminar", function () {
     var row = $(this).closest("tr");

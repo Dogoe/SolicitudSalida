@@ -111,7 +111,8 @@ namespace Datos
             }
         }
         //--------------------------------------------------------------
-        public DataSet ConsultarSolicitudes()
+        //--------si se manda correo, buscara por correo, si no, traera todas
+        public DataSet ConsultarSolicitudes(string correo)
         {
             SqlCommand cmd = new SqlCommand();
             DataSet ds = new DataSet();
@@ -123,7 +124,16 @@ namespace Datos
                 cmd.Connection = dbSS.Conexion;
                 cmd.CommandType = CommandType.StoredProcedure;
                 cmd.CommandText = "[dbo].[ConsultasSolicitudes]";
-                cmd.Parameters.AddWithValue("@Accion", "CONSULTAR_TODO");
+                if (correo!=null)
+                {
+                    cmd.Parameters.AddWithValue("@Accion", "CONSULTAR_MIS_SOLICITUDES");
+                    cmd.Parameters.AddWithValue("@Correo", correo);
+                }
+                else
+                {
+                    cmd.Parameters.AddWithValue("@Accion", "CONSULTAR_TODO");
+                    cmd.Parameters.AddWithValue("@Correo", string.Empty);
+                }
         
                 da.SelectCommand = cmd;
                 da.Fill(ds);
